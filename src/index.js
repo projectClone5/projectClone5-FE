@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Router } from 'react-router-dom'
+import { BrowserRouter } from "react-router-dom";
+
+import store from './redux/store';
+import { history } from './redux/store';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Router>
+    <Router history={history}>
+      <BrowserRouter store={store}>
       <App />
+      </BrowserRouter>
     </Router>
 );
 
