@@ -1,53 +1,54 @@
 .Header-container {
-    border: 2px solid #D9D9D9;
-    width : 100%;
+    width: 100%;
+    padding-top: 5%;
+    border: 2px solid #FAFAFA;
 }
 
 .Header-content {
-    display: flex;
+    max-width: 800px;
+    width: 100%;
+    display : flex;
     flex-direction: row;
-    padding : 15px 20px 8px;
 }
 
-.Header-content > a {
-    margin-left : 20px;
+.entire {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.Header-content > a > img {
-    margin-top : 10px;
-    width : 100px;
-    cursor : pointer;
+.entire > svg {
+
 }
 
-.Header-content > button {
-    cursor : pointer;
+.entire > a > img {
+    width: 100px;
+    height: 36px;
+}
+
+.mypage {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right : 10px;
+}
+
+.LO-SI-button {
+    display : flex;
+    flex-direction: row;
+    height: 30px;
+}
+
+.LO-SI-button > button {
     border: none;
     background-color: transparent;
-    font-weight: 900;
-    font-size: 18px;
 }
 
-.nickname_btn2 {
-    margin: 24px 10px;
-    font-weight: 900;
-    font-size: 18px;
+.My-button {
+    width: 50px;
+    height: 60px;
 }
 
-.Login_btn2 {
-    margin-right: 20px;
+.My-button > p {
+    font-size : 12px;
 }
-
-.Singup_btn2 {
-    margin: 0 100px 0 0;
-}
-
-.Logout_btn2 {
-    margin: 0 100px 0 0;
-}
-/* 
-@media screen and (min-width : 350px) and (max-width : 850px) {
-    .Singup_btn2 {
-        margin: 0 50px 0 0;
-    }
-}
- */

@@ -6,12 +6,11 @@ import { Link } from 'react-router-dom';
 import{Card} from '../components/Card'
    
 const Main = () => {
-    <>
     const history = useHistory();
 
 
     return (
-        <>
+ 
             <div>
                 <div className="banner">
                     광고 이미지
@@ -39,8 +38,9 @@ const Main = () => {
         <button onClick={() => history.push('/Signup')}>회원가입</button>
             </div>
 
-        </>
+
     )
+
 }
 
 export default Main;
