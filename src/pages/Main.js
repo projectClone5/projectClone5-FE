@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
+
 import "../css/Main.css";
 import banner from '../assets/banner.png';
 import banner2 from '../assets/banner2.png';
 import banner3 from '../assets/banner3.png';
 import travel from "../assets/travel.png";
 import cook from "../assets/cook.png";
+
 //components
 
 import Card from '../components/Card'
 
 const Main = (list) => {
-
     const history = useHistory();
+    const [checkedInputs, setCheckedInputs] = useState("All");
+    const changeRadio = (e) => {
+        console.log(e)
+        if (e.target.checked) {
+            setCheckedInputs(e.target.id);
+           
+        }
+        
+    };
+
+
 
     return (
         <>
@@ -34,6 +46,8 @@ const Main = (list) => {
                             type="radio"
                             id="All"
                             name="radioButton"
+                            onChange={changeRadio}
+                            value={checkedInputs}
                             defaultChecked
                             >카테고리 버튼/전체
                         </div>
@@ -43,8 +57,10 @@ const Main = (list) => {
                         <div
                             className="CategoryCheck"
                             type="radio"
-                            id="1"
+                            id="TRIP"
                             name="radioButton"
+                            onChange={changeRadio}
+                            value={checkedInputs}
                         >
                         <img src={travel} alt="Travel"/>
                         여행
@@ -54,8 +70,10 @@ const Main = (list) => {
                         <div
                             className="CategoryCheck"
                             type="radio"
-                            id="2"
+                            id="COOK"
                             name="radioButton"
+                            onChange={changeRadio}
+                            value={checkedInputs}
                         >
                         <img src={cook} alt="cook"/>
                         요리
@@ -65,9 +83,22 @@ const Main = (list) => {
                         <div
                             className="CategoryCheck"
                             type="radio"
-                            id="3"
+                            id="SPORTS"
                             name="radioButton"
+                            onChange={changeRadio}
+                            value={checkedInputs}
                             >카테고리 버튼/3
+                        </div>
+                    </label>
+<label>
+                        <div
+                            className="CategoryCheck"
+                            type="radio"
+                            id="BEAUTY"
+                            name="radioButton"
+                            onChange={changeRadio}
+                            value={checkedInputs}
+                            >카테고리 버튼/4
                         </div>
                     </label>
                 </div>
@@ -75,7 +106,7 @@ const Main = (list) => {
                 <div className="bastReviewPoint">
                     최고점 포스트 4개 출력
                     <div className="card">
-                        <Card />
+                        <Card /><Card /><Card /><Card />
                     </div>
                 </div><br />
                 <div className="maxComment">
@@ -102,6 +133,7 @@ const Main = (list) => {
                     >등록버튼</button>
                 </div>
             </>
+
     )
 
 }
