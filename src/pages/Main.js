@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import{Card} from '../components/Card'
    
 const Main = () => {
-    <>
     const history = useHistory();
 
 
