@@ -3,14 +3,16 @@ import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 //components
+
 import Card from '../components/Card'
 
 const Main = (list) => {
+
     const history = useHistory();
 
 
     return (
-        <>
+ 
             <div>
                 <div className="banner">
                     광고 이미지
@@ -88,8 +90,9 @@ const Main = (list) => {
                 </div>
             </div>
 
-        </>
+
     )
+
 }
 
 export default Main;

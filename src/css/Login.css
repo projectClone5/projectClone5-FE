@@ -6,14 +6,20 @@
 .Login_content{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: flex-start;
+    margin: 0px auto;
+    max-width: 808px;
+    width: 100%;
+    padding: 0px;
+    min-height: 653px;
 }
 
 .Login_input {
     display : flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 0;
 }
 
 .title {
