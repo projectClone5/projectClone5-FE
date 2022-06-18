@@ -1,10 +1,12 @@
 .Header-container {
     border: 2px solid #D9D9D9;
+    width : 100%;
 }
 
 .Header-content {
     display: flex;
     flex-direction: row;
+    padding : 15px 20px 8px;
 }
 
 .Header-content > a {
@@ -12,8 +14,8 @@
 }
 
 .Header-content > a > img {
-    height : 100%;
-    width : 220px;
+    margin-top : 10px;
+    width : 100px;
     cursor : pointer;
 }
 
