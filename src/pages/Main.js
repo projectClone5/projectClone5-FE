@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import{Card} from '../components/Card'
 
+//components
+import{Card} from '../components/Card'
+   
 const Main = () => {
     <>
-    
-    
-    
-    </>
+    const history = useHistory();
+
 
     return (
         <>
@@ -30,8 +30,15 @@ const Main = () => {
                 </div><br/>
                 <div className="bestLowPrice">
                     가장 낮은 가격 포스트 4개 출력
-                </div><br/>
+                </div><br/>   
+      
+      
+     
+       
+        <button onClick={() => history.push('/Login')}>로그인</button>
+        <button onClick={() => history.push('/Signup')}>회원가입</button>
             </div>
+
         </>
     )
 }

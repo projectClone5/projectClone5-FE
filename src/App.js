@@ -6,7 +6,7 @@ import Write from "./pages/Write";
 import Detail from "./pages/Detail";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Main} />
-        {/* <Route exact path="/Detail/:index/:articleId" component={Detail} />
+       <Route exact path="/Detail/:index/:articleId" component={Detail} />
         <Route exact path="/Write" component={Write} />
         <Route exact path="/Signup" component={Signup} />
-        <Route exact path="/Login" component={Login} /> */}
+        <Route exact path="/Login" component={Login} /> 
       </Switch>
       {/* <Footer /> */}
     </div>
