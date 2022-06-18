@@ -1,14 +1,20 @@
 .Header-container {
     width: 100%;
-    padding-top: 5%;
-    border: 2px solid #FAFAFA;
+    border: 2px solid #DCDCDC;
+}
+
+.Header-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .Header-content {
-    max-width: 800px;
     width: 100%;
     display : flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .entire {
@@ -18,7 +24,16 @@
 }
 
 .entire > svg {
+    height : 36px;
+    width : 30px;
+}
 
+.entire > hr{
+    height:36px;
+    width: 2px;
+    border-width:0;
+    color:#FAFAFA;
+    background-color : #DCDCDC;
 }
 
 .entire > a > img {
@@ -36,12 +51,14 @@
 .LO-SI-button {
     display : flex;
     flex-direction: row;
+    justify-content: space-between;
     height: 30px;
 }
 
 .LO-SI-button > button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .My-button {

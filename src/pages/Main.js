@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
-
+import "../css/Main.css";
+import banner from '../assets/banner.png';
+import banner2 from '../assets/banner2.png';
+import banner3 from '../assets/banner3.png';
+import travel from "../assets/travel.png";
+import cook from "../assets/cook.png";
 //components
 
 import Card from '../components/Card'
@@ -10,14 +15,19 @@ const Main = (list) => {
 
     const history = useHistory();
 
-
     return (
- 
-            <div>
-                <div className="banner">
-                    광고 이미지
-                </div><br />
-                <div className="category">
+        <>
+            <div className="banner">
+                <div className="main-view">
+                    <ul>
+                        <li><img src={banner} width="100%" alt="banner"/></li>
+                        <li><img src={banner2} width="100%" alt="banner2"/></li>
+                        <li><img src={banner3} width="100%" alt="banner3"/></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="category">
+                <div className="categoty-content">
                     <label>
                         <div
                             className="CategoryCheck"
@@ -25,8 +35,9 @@ const Main = (list) => {
                             id="All"
                             name="radioButton"
                             defaultChecked
-                        >카테고리 버튼/전체</div>
-                        {/* 카테고리 리스트로 이동 */}
+                            >카테고리 버튼/전체
+                        </div>
+                            {/* 카테고리 리스트로 이동 */}
                     </label>
                     <label>
                         <div
@@ -34,7 +45,10 @@ const Main = (list) => {
                             type="radio"
                             id="1"
                             name="radioButton"
-                        >카테고리 버튼/1</div>
+                        >
+                        <img src={travel} alt="Travel"/>
+                        여행
+                        </div>
                     </label>
                     <label>
                         <div
@@ -42,7 +56,10 @@ const Main = (list) => {
                             type="radio"
                             id="2"
                             name="radioButton"
-                        >카테고리 버튼/2</div>
+                        >
+                        <img src={cook} alt="cook"/>
+                        요리
+                        </div>
                     </label>
                     <label>
                         <div
@@ -50,9 +67,11 @@ const Main = (list) => {
                             type="radio"
                             id="3"
                             name="radioButton"
-                        >카테고리 버튼/3</div>
+                            >카테고리 버튼/3
+                        </div>
                     </label>
-                </div><br />
+                </div>
+            </div>
                 <div className="bastReviewPoint">
                     최고점 포스트 4개 출력
                     <div className="card">
@@ -77,20 +96,12 @@ const Main = (list) => {
                         <Card />
                     </div>
                 </div><br />
-
-
-
-
-                <button onClick={() => history.push('/Login')}>로그인</button>
-                <button onClick={() => history.push('/Signup')}>회원가입</button>
                 <div className="addBtn">
                     <button
                     // onClick={() => history.push('/Write')}
                     >등록버튼</button>
                 </div>
-            </div>
-
-
+            </>
     )
 
 }
