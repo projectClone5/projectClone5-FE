@@ -9,9 +9,11 @@ const Header = () => {
 
     return (
         <div className="Header-container">
-            <div className="Header-content">
+            <div className="Header-wrap">
+                <div className="Header-content">
                     <div className="entire">
                         <FaRegClone size="20" />
+                        <hr></hr>
                         <Link to="/"> 
                             <img src={Logo} alt="Logo" />
                         </Link>
@@ -28,7 +30,8 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-    )
+        </div>
+        )
     }
 
 

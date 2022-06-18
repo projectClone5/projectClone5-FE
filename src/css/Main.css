@@ -1,9 +1,70 @@
-.main{
-    text-align: center;
-    width: 1200px;
+
+.banner {
+  max-width: 808px;
+  width : 100%;
 }
-.Card{
+
+.main-view {
+  
+    margin-bottom : 20px;
+    margin-top : 50px;
+    text-align : center;
+}
+
+.main-view > ul > li > img{
+    width : 100%;
+}
+
+.main-view > ul {
+    list-style:none;
+}
+
+.main-view{ overflow : hidden; }
+  .main-view ul{ 
+    width : calc(100% * 3);
+    display : flex; 
+    animation : slide 8s infinite;
+    } /* slide를 8초동안 진행하며 무한반복 함 */
+  .main-view li{
+    width : calc(100% / 3);
+    }
+  
+  @keyframes slide {
+    0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+    10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+    25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+    35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+    50% {margin-left:-200%;}
+    60% {margin-left:-200%;}
+    100% {margin-left:0;}
+  }
+
+.category {
+  display : flex;
+  flex-direction: row;
+}
+
+.categoty-content {
+  display : flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+.CategoryCheck {
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CategoryCheck > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+  
+  .Card{
     display: flex;
     flex-direction: row;
-
-}
+  }
+    
