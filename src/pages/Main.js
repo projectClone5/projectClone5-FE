@@ -85,7 +85,7 @@ const Main = (list) => {
                 <button onClick={() => history.push('/Signup')}>회원가입</button>
                 <div className="addBtn">
                     <button
-                    // onClick={() => history.push('/Write')}
+                    onClick={() => history.push('/Write')}
                     >등록버튼</button>
                 </div>
             </div>
