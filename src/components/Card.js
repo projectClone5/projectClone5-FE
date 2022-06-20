@@ -9,10 +9,17 @@ import card2 from "../assets/card2.png";
 import card3 from "../assets/card3.png";
 import card4 from "../assets/card4.png";
 
-const Card = () => {
-
+const Card = (props) => {
+    // const dispatch = useDispatch();
     const history = useHistory;
+    // const card_list = useSelector((state) => state.post.list);
+    const category = props.checkedInputs;
+    // const Cards = card_list.posts;
 
+
+
+    // const filteredCategory =
+    // Cards !== undefined && Cards.filter((v) => v.postCategory === category);
     return (
 
         <div className="Cardbox"

@@ -45,10 +45,9 @@ const Write = (props) => {
             alert('빈칸을 다 채워주세요.');
             return;
         }
-        e.preventDefault();
+       
         let frm = new FormData();
-        const id = "null";
-        frm.append("id", id)
+        
         frm.append("title", postTitle)
         frm.append("price", Price)
         frm.append("content", content)

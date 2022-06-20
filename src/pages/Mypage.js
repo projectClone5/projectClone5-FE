@@ -18,7 +18,7 @@ const Mypage = () => {
                         <p>닉네임 자리입니다.</p>
                     </div>
                 </div>
-                <div className="post-content">
+                <div className="my-post-content">
                     <Card />
                 </div>
             </div>
