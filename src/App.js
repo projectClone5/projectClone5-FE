@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Mypage from "./pages/Mypage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/Write" component={Write} />
         <Route exact path="/Signup" component={Signup} />
         <Route exact path="/Login" component={Login} />
+        <Route exact path="/Mypage" component={Mypage} />
       </Switch>
       <Footer />
     </div>

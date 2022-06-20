@@ -1,11 +1,10 @@
-
 .banner {
-  max-width: 808px;
+  max-width: 850px;
   width : 100%;
+  margin: 0 auto;
 }
 
 .main-view {
-  
     margin-bottom : 20px;
     margin-top : 50px;
     text-align : center;
@@ -42,6 +41,7 @@
 .category {
   display : flex;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .categoty-content {
@@ -55,6 +55,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 30px;
 }
 
 .CategoryCheck > img {
@@ -62,9 +63,56 @@
   height: 100px;
   border-radius: 50%;
 }
+
+.card-container {
+  padding : 20px 15%;
+  width: 100%;
+  height: 2200px;
+}
+
+.card-view {
+  width: 100%;
+  padding : 0 15%;
+  margin-bottom: 300px;
+}
+
+.bestReviewPoint, 
+.maxComment,
+.bestLoveCount,
+.bestLowPrice {
+  display : flex;
+  flex-direction: column;
+}
+
+.bestReviewPoint-title,
+.maxComment-title,
+.bestLoveCount-title,
+.bestLowPrice-title {
+  margin-left: 20px;
+
+}
   
-  .Card{
-    display: flex;
-    flex-direction: row;
-  }
+.card{
+  display : flex;
+  flex-direction: row;
+}
+
+.addBtn-container {
+ 
+}
+
+.addBtn {
+  width: 70px;
+  height: 50px;
+  top: 0;
+  right: 0;
+}
+
+.addBtn > button {
+  cursor : pointer;
+  border: none;
+  background-color: transparent;
+  position: fixed;
+
+}
     

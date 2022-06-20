@@ -12,10 +12,11 @@
 
 * {
   box-sizing: border-box;
-  margin: 0 auto;
   font-family: 'GmarketSansMedium';
+  margin : 0 auto;
   outline: none;
 }
+
 
 body {
   margin: 0;

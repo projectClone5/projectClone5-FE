@@ -12,8 +12,6 @@ const Header = () => {
             <div className="Header-wrap">
                 <div className="Header-content">
                     <div className="entire">
-                        <FaRegClone size="20" />
-                        <hr></hr>
                         <Link to="/"> 
                             <img src={Logo} alt="Logo" />
                         </Link>
@@ -21,10 +19,10 @@ const Header = () => {
                     <div className="mypage">
                         <div className="LO-SI-button">
                             <button onClick={() => history.push("/Login")} className="Login_btn2">로그인</button>
-                            <button onClick={() => history.push("/Signup")}className="Singup_btn2">회원가입</button>
+                            <button onClick={() => history.push("/Signup")} className="Singup_btn2">회원가입</button>
                         </div>
-                        <div className="My-button">
-                            <FaRegUser size="25"/>
+                        <div className="My-button" onClick={() => history.push("/Mypage")}>
+                            <FaRegUser size="25" />
                             <p>마이</p>
                         </div>
                     </div>
@@ -33,11 +31,5 @@ const Header = () => {
         </div>
         )
     }
-
-
-             {/*       <p className="nickname_btn2">님 환영합니다!</p>
-                <button className="Logout_btn2">로그아웃</button> */}
-
-
 
 export default Header;

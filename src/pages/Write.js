@@ -6,7 +6,7 @@ import { createPost } from "../redux/modules/post";
 import axios from "axios";
 
 
-import DatePicker from "react-datepicker";
+//import DatePicker from "react-datepicker";
 
 const Write = (props) => {
     const history = useHistory;
