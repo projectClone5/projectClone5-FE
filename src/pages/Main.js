@@ -50,14 +50,15 @@ const Main = (list) => {
                             name="radioButton"
                             onChange={changeRadio}
                             value={checkedInputs}
+                            defaultChecked
 
                         >
                         <img src={TRIP} alt="TRIP"/>
                         여행
 
 
-                            defaultChecked
-                            >카테고리 버튼/전체
+                            
+                        
 
                         </div>
                     </label>
@@ -164,7 +165,7 @@ const Main = (list) => {
 
                     onClick={() => history.push('/Write')}
                     ><BsPlusLg size="25"/></button>
-                   >등록버튼</button>
+                   
                 </div>  
             </div>    
         </>
