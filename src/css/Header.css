@@ -1,33 +1,36 @@
 .Header-container {
     width: 100%;
-    padding-top : 20px;
-    border: 2px solid #DCDCDC;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    z-index: 300;
 }
 
 .Header-wrap {
     display: flex;
-    flex-flow: row wrap;
+    -webkit-box-pack: center;
     justify-content: center;
-    align-items: center;
+    background-color: rgb(255, 255, 255);
 }
 
 .Header-content {
-    width: 100%;
-    display : flex;
-    flex-direction: row;
+    position: relative;
+    display: flex;
+    -webkit-box-pack: justify;
     justify-content: space-between;
+    max-width: 768px;
+    width: 100%;
+    padding: 22px 3px 8px;
 }
 
 .entire {
     display : flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100%;
 }
 
 .entire > svg {
     height : 36px;
     width : 30px;
     margin-right : 0;
+    margin-top: 10px;
 }
 
 .entire > hr {
@@ -41,6 +44,15 @@
 .entire > a > img {
     width: 100px;
     height: 36px;
+    margin-top: 10px;
+}
+
+.wall {
+    width: 1px;
+    height: 38px;
+    background-color: rgb(238, 238, 238);
+    margin: 10px 20px 0px;
+    display: inline-block;
 }
 
 .mypage {
@@ -60,18 +72,20 @@
 .LO-SI-button > button {
     border: none;
     background-color: transparent;
+    color :black;
     cursor: pointer;
-    font-weight: 900;
-    font-size: 15px;
+    width: 85px;
+    margin-top: 18px;
+    font-size: 18px;
 }
 
 .My-button {
-    width: 50px;
-    height: 60px;
-    margin-right: 10px;
     cursor : pointer;
+    margin-top: 7px;
+    color :#333333;
 }
 
 .My-button > p {
     font-size : 12px;
+    margin-top: 0;
 }

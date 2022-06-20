@@ -1,17 +1,16 @@
 .Login_container{
     width : 100%;
-    margin-top: 100px;
+    padding : 0 15%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .Login_content{
     display: flex;
-    flex-direction: row;
-    flex-flow: column nowrap;
-    align-content: flex-start;
-    margin: 0px auto;
-    max-width: 808px;
-    width: 100%;
-    padding: 0px;
+    flex-flow: column;
+    justify-content: center;
     min-height: 653px;
 }
 
@@ -28,7 +27,6 @@
 }
 
 .Login_input > input {
-    text-align : center;
     width: 360px;
     height: 55px;
     margin-bottom: 20px;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../assets/Logo.PNG';
-import { FaRegClone, FaRegUser } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
+import { BiCategory } from "react-icons/bi";
 import '../css/Header.css';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -12,6 +13,8 @@ const Header = () => {
             <div className="Header-wrap">
                 <div className="Header-content">
                     <div className="entire">
+                        <BiCategory size="20" color="#333333"/>
+                        <span className="wall"></span>
                         <Link to="/"> 
                             <img src={Logo} alt="Logo" />
                         </Link>

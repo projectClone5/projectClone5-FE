@@ -9,7 +9,6 @@ import banner3 from '../assets/banner3.png';
 import TRIP from "../assets/travel.png";
 import cook from "../assets/cook.png";
 import sport from "../assets/sport.png";
-import All from "../assets/all.PNG";
 import metting from "../assets/metting.png";
 import { BsPlusLg } from "react-icons/bs"; 
 
@@ -162,10 +161,8 @@ const Main = (list) => {
             <div className="addBtn-container">
                 <div className="addBtn">
                     <button
-
                     onClick={() => history.push('/Write')}
                     ><BsPlusLg size="25"/></button>
-                   
                 </div>  
             </div>    
         </>
