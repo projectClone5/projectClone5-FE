@@ -1,3 +1,8 @@
+
+import { apis } from "../../shared/apis";
+
+
+
 //Action
 const LOAD = "post/LOAD";
 const LOAD_ID = "post/LOAD_ID";
@@ -28,6 +33,24 @@ const initialState = {
     is_loaded: false,
     list: [],
 };
+
+export const loadPostApi = (id) => async (dispatch) => {
+    try {
+      const { data } = await apis.loadpost(id);
+      dispatch(loadPost_ID(data));
+    } catch (e) {
+      // console.log(`개별 아티클 조회 오류 발생!${e}`);
+    }
+  };
+  
+  //포스팅 삭제하기
+  export const delPostApi = (id) => {
+    return async function (dispatch, getState) {
+      try {
+        await apis.delpost(id);
+      } catch (e) {}
+    };
+  };
 
 //Reducer
 

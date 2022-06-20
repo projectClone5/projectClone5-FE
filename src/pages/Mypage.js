@@ -29,7 +29,7 @@ const Mypage = () => {
                         <Modal open={modalOpen} close={closeModal} header="수정하기"></Modal>
                     </div>
                 </div>
-                <div className="post-content">
+                <div className="my-post-content">
                     <Card />
                 </div>
             </div>
