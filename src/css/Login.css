@@ -6,7 +6,6 @@
 .Login_content{
     display: flex;
     flex-direction: row;
-    display: flex;
     flex-flow: column nowrap;
     align-content: flex-start;
     margin: 0px auto;

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import CKeditor from "../components/CKeditor"
 
-import DatePicker from "react-datepicker";
+//import DatePicker from "react-datepicker";
 
 const Write = (props) => {
     <></>

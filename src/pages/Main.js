@@ -6,8 +6,12 @@ import "../css/Main.css";
 import banner from '../assets/banner.png';
 import banner2 from '../assets/banner2.png';
 import banner3 from '../assets/banner3.png';
-import travel from "../assets/travel.png";
+import TRIP from "../assets/travel.png";
 import cook from "../assets/cook.png";
+import sport from "../assets/sport.png";
+import All from "../assets/all.PNG";
+import metting from "../assets/metting.png";
+import { BsPlusLg } from "react-icons/bs"; 
 
 //components
 
@@ -24,8 +28,6 @@ const Main = (list) => {
         }
         
     };
-
-
 
     return (
         <>
@@ -44,25 +46,12 @@ const Main = (list) => {
                         <div
                             className="CategoryCheck"
                             type="radio"
-                            id="All"
-                            name="radioButton"
-                            onChange={changeRadio}
-                            value={checkedInputs}
-                            defaultChecked
-                            >카테고리 버튼/전체
-                        </div>
-                            {/* 카테고리 리스트로 이동 */}
-                    </label>
-                    <label>
-                        <div
-                            className="CategoryCheck"
-                            type="radio"
                             id="TRIP"
                             name="radioButton"
                             onChange={changeRadio}
                             value={checkedInputs}
                         >
-                        <img src={travel} alt="Travel"/>
+                        <img src={TRIP} alt="TRIP"/>
                         여행
                         </div>
                     </label>
@@ -75,7 +64,7 @@ const Main = (list) => {
                             onChange={changeRadio}
                             value={checkedInputs}
                         >
-                        <img src={cook} alt="cook"/>
+                        <img src={cook} alt="COOK"/>
                         요리
                         </div>
                     </label>
@@ -87,55 +76,91 @@ const Main = (list) => {
                             name="radioButton"
                             onChange={changeRadio}
                             value={checkedInputs}
-                            >카테고리 버튼/3
+                            >
+                        <img src={sport} alt="SPORTS"/>
+                        스포츠        
                         </div>
                     </label>
-<label>
+                    <label>
                         <div
                             className="CategoryCheck"
                             type="radio"
-                            id="BEAUTY"
+                            id="METTING"
                             name="radioButton"
                             onChange={changeRadio}
                             value={checkedInputs}
-                            >카테고리 버튼/4
+                            >
+                          <img src={metting} alt="METTING"/>
+                        모임
                         </div>
+                    </label>
+                    <label>
+                        <div
+                            className="CategoryCheck"
+                            type="radio"
+                            id="All"
+                            name="radioButton"
+                            onChange={changeRadio}
+                            value={checkedInputs}
+                            defaultChecked
+                        >
+                        전체보기
+                        </div>
+                            {/* 카테고리 리스트로 이동 */}
                     </label>
                 </div>
             </div>
-                <div className="bastReviewPoint">
-                    최고점 포스트 4개 출력
-                    <div className="card">
-                        <Card /><Card /><Card /><Card />
+            <div className="card-container">
+                <div className="card-view">
+                    <div className="bestReviewPoint">
+                        <div className="bestReviewPoint-title">
+                            <h3>대원님들이 추앙하는 프립💙 (최고점 포스트 4개 출력)</h3>
+                        </div>
+                        <div className="card">
+                            <Card />
+                        </div>
                     </div>
-                </div><br />
-                <div className="maxComment">
-                    가장 많은 댓글 포스트 4개 출력
-                    <div className="card">
-                        <Card />
+                </div>
+                <div className="card-view">   
+                    <div className="maxComment">
+                        <div className="maxComment-title">
+                            <h3>가장 많은 댓글 포스트 4개 출력</h3>
+                        </div>
+                        <div className="card">
+                            <Card />
+                        </div>
                     </div>
-                </div><br />
-                <div className="bestLoveCount">
-                    가장 많은 찜 포스트 4개 출력
-                    <div className="card">
-                        <Card />
+                </div>
+                <div className="card-view"> 
+                    <div className="bestLoveCount">
+                        <div className="bestLoveCount-title">
+                            <h3>가장 많은 찜 포스트 4개 출력</h3>
+                        </div>
+                        <div className="card">
+                            <Card />
+                        </div>
                     </div>
-                </div><br />
-                <div className="bestLowPrice">
-                    가장 낮은 가격 포스트 4개 출력
-                    <div className="card">
-                        <Card />
+                </div>   
+                <div className="card-view">  
+                    <div className="bestLowPrice">
+                        <div className="bestLowPrice-title">
+                            <h3>가장 낮은 가격 포스트 4개 출력</h3>
+                        </div>
+                        <div className="card">
+                            <Card />
+                        </div>
                     </div>
-                </div><br />
+                </div>    
+            </div>      
+            <div className="addBtn-container">
                 <div className="addBtn">
                     <button
                     // onClick={() => history.push('/Write')}
-                    >등록버튼</button>
-                </div>
-            </>
-
+                    ><BsPlusLg size="25"/></button>
+                </div>  
+            </div>    
+        </>
     )
-
 }
 
 export default Main;
