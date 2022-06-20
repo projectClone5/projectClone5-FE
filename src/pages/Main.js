@@ -48,6 +48,7 @@ const Main = (list) => {
                             name="radioButton"
                             onChange={changeRadio}
                             value={checkedInputs}
+
                             defaultChecked
                             >카테고리 버튼/전체
                         </div>
@@ -129,7 +130,7 @@ const Main = (list) => {
                 </div><br />
                 <div className="addBtn">
                     <button
-                    // onClick={() => history.push('/Write')}
+                    onClick={() => history.push('/Write')}
                     >등록버튼</button>
                 </div>
             </>
