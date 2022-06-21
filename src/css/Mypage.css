@@ -1,16 +1,13 @@
 .Mypage-container {
     display: flex;
     flex-flow: column;
-    align-content: flex-start;
-    margin: 20px auto;
-    max-width: 808px;
+    margin: 30px auto;
+    max-width: 1000px;
     width: 100%;
-    padding: 0px 20px;
-    min-height: 1px;
 }
 
 .Mypage-content {
-    padding: 24px 20px 36px;
+
 }
 
 .user-content {

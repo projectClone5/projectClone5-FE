@@ -21,6 +21,7 @@ const Modal = (props) => {
             <input type="text" placeholder="닉네임을 변경해주세요"/>
           </main>
           <footer>
+            미리보기????
             <button className="close" onClick={close}>
               수정하기
             </button>

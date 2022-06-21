@@ -16,7 +16,7 @@
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    max-width: 768px;
+    max-width: 1000px;
     width: 100%;
     padding: 22px 3px 8px;
 }
