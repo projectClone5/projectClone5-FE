@@ -1,0 +1,24 @@
+.CategoryDetail-box {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: flex-start;
+    margin: 0px auto;
+    max-width: 808px;
+    width: 100%;
+    padding: 0px 20px;
+    min-height: 1px;
+}
+
+.CategoryDetail-container {
+    opacity: 1;
+    display: block;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.CategoryDetail-title {
+    line-height: 20px;
+    padding: 20px 0px;
+    font-size: 20px;
+    font-weight: bold;
+}

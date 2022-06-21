@@ -71,7 +71,7 @@ const Main = (list) => {
                             onChange={changeRadio}
                             value={checkedInputs}
                         >
-                        <img src={cook} alt="COOK"/>
+                        <img src={cook} alt="COOK" onClick={() => history.push("/CategoryDetail")}/>
                         요리
                         </div>
                     </label>
@@ -110,7 +110,7 @@ const Main = (list) => {
                             onChange={changeRadio}
                             value={checkedInputs}
                             defaultChecked
-                        ><BiCategory size="45"/>
+                        ><BiCategory size="45" onClick={() => history.push("/All")}/>
                         <p>전체보기</p>
                         </div>
                             {/* 카테고리 리스트로 이동 */}
@@ -121,7 +121,7 @@ const Main = (list) => {
                 <div className="card-view">
                     <div className="bestReviewPoint">
                         <div className="bestReviewPoint-title">
-                            <h3>대원님들이 추앙하는 프립💙 (최고점 포스트 4개 출력)</h3>
+                            <h3>대원님들이 추앙하는 프립💙</h3>
                         </div>
                         <div className="card">
                             <Card checkedInputs="SPORTS"/>
