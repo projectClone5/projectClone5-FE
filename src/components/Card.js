@@ -41,12 +41,12 @@ const Card = (props) => {
 
     return (
         <>
-        { card_list !== undefined && category === "All"
-            ? card_list.map((card_list, postId) => {
-                console.log(card_list.map)
+        { card_list !== undefined || category === "All"
+            ? ( card_list.map((card_list, index) => {
+                console.log(card_list)
                 return (
                     <div className="Cardbox"
-                        key={postId}
+                        key={index}
                         // onClick={() => {
                         //     history(`/detail/${list.postId}`);
                         // }}
@@ -54,8 +54,7 @@ const Card = (props) => {
                         <div className="Card" >
                             <div className="Cardbox-content" category={card_list.category}>
                                 <div className="Posting_Image">
-                                    <img src={card} alt="test-card"
-                                        postImage={card_list.imgUrl }
+                                    <img src={card_list.imgUrl} alt="test-card"
                                     />
                                     <button className="LoveButton" onClick={btnclick}>
                                         {/* 버튼은 이미지 안에 배치 */}
@@ -89,7 +88,7 @@ const Card = (props) => {
                         </div>
                     </div>
                 );
-            })
+            }))
             : Cards !== undefined &&
             filteredCategory.map((card_list, postId) => {
                 return (

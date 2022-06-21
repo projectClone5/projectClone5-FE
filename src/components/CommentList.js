@@ -51,6 +51,7 @@ const CommentList = () => {
                   width: "100px",
                   fontSize: "18px",
                   paddingTop: "15px",
+                  fontWeight: "bold",
                 }}
               >유저 닉네임
               </span>
@@ -81,7 +82,7 @@ const CommentListWrap = styled.div`
   margin-top: 100px;
   margin-bottom: 80px;
   padding-right: 40px;
-  width: 1050px;
+  width: 1000px;
 `;
 
 const Star = styled.div`
@@ -210,7 +211,7 @@ const ReviewButton = styled.button`
   cursor: pointer;
   box-sizing: content-box;
   &:hover {
-    background-color: #B5C5D6;
+    background-color: black;
     color: white;
   }
 `;
