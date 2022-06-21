@@ -1,14 +1,15 @@
 .Cardbox {
   display: flex;
   flex-direction: row;
+  gap : 20px;
 }
 
 .Card {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   cursor: pointer;
-  width: calc((100% - 200px) / 3);
-  margin-right: 10px;
+  width: 25%;
 }
 
 .Card:hover {
@@ -24,7 +25,7 @@
 
 .Posting_Image {
   position : relative;
-  width: 300px;
+  width: 100%px;
   height: 300px;
   margin-bottom: 10px;
 }

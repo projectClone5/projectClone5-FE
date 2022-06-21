@@ -11,6 +11,7 @@ import cook from "../assets/cook.png";
 import sport from "../assets/sport.png";
 import metting from "../assets/metting.png";
 import { BsPlusLg } from "react-icons/bs"; 
+import { BiCategory } from "react-icons/bi";
 
 //components
 
@@ -109,8 +110,8 @@ const Main = (list) => {
                             onChange={changeRadio}
                             value={checkedInputs}
                             defaultChecked
-                        >
-                        전체보기
+                        ><BiCategory size="45"/>
+                        <p>전체보기</p>
                         </div>
                             {/* 카테고리 리스트로 이동 */}
                     </label>
@@ -162,7 +163,7 @@ const Main = (list) => {
                 <div className="addBtn">
                     <button
                     onClick={() => history.push('/Write')}
-                    ><BsPlusLg size="25"/></button>
+                    ><BsPlusLg size="25" pulse/></button>
                 </div>  
             </div>    
         </>

@@ -63,26 +63,28 @@ const Signup = () => {
             <div className="Singup_content">
                 <div className="Singup_input">
                     <p className="title">회원가입</p>
-                    <input type="text" label="아이디" placeholder="아이디" 
+
+                    <input type="text" label="아이디" placeholder="아이디를 입력하세요" 
                     onChange={(e) => {
                         setUserEmail(e.target.value);
                       }}/>
 
-                    <input type="text" label="닉네임" placeholder="닉네임" 
+                    <input type="text" label="닉네임" placeholder="닉네임를 입력하세요" 
                      onChange={(e) => {
                         setUserNickname(e.target.value);
                       }}
                     />
 
-                    <input type="Password" label="비밀번호" placeholder="비밀번호."
+                    <input type="Password" label="비밀번호" placeholder="비밀번호를 입력하세요"
                      onChange={(e) => {
                         setUserPassword(e.target.value);
                       }} />
 
-                    <input type="Password" label="비밀번호 확인" placeholder="비밀번호 확인" 
+                    <input type="Password" label="비밀번호 확인" placeholder="비밀번호를 다시 입력하세요" 
                      onChange={(e) => {
                         setUserPasswordChek(e.target.value);
                       }}/>
+
 
                     <button className="Singup_btn" onClick={signup}>회원가입</button>
 
