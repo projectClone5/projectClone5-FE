@@ -46,6 +46,15 @@ export const loadPostsApi = () => {
   };
 };
   
+export const loadPostApi = (id) => async (dispatch) => {
+  try {
+    const { data } = await apis.loadpost(id);
+    dispatch(loadPost_ID(data));
+  } catch (e) {
+    console.log(`개별 아티클 조회 오류 발생!${e}`);
+  }
+};
+
   //포스팅 삭제하기
   export const delPostApi = (id) => {
     return async function (dispatch, getState) {
@@ -60,13 +69,13 @@ export const loadPostsApi = () => {
 export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
         case "post/LOAD": {
-            console.log("이제 값을 불러올거야");
+            console.log("포스트를 불러올거야");
             console.log(action.post);
             return { list: action.post, is_loaded: true };
         }
 
         case "post/ADD": {
-            console.log("공구가 올라갈거야!");
+            console.log("포스트 생성완료!");
             const new_post_list = [...state.list, action.post];
             return { list: new_post_list };
         }

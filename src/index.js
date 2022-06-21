@@ -8,6 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from './redux/store';
 import { history } from './redux/store';
+import { composeWithDevTools } from 'redux-devtools-extension'; 
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 
 const Comment = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const comment_list = useSelector((state) => state.comment.list);
   const card = comment_list?.data.existingComment;
   console.log(comment_list);
