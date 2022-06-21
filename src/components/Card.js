@@ -39,28 +39,31 @@ const Card = (props) => {
         Cards !== undefined && Cards.filter((v) => v.postCategory === category);
 
 
-        return (
-            <>
-            { card_list !== undefined
-                ? ( card_list.map((card_list, index) => {
-                    console.log(card_list)
-                    return (
-                        <div className="Cardbox"
-                            key={index}
-                            // onClick={() => {
-                            //     history(`/detail/${list.postId}`);
-                            // }}
-                        >
-                            <div className="Card" >
-                                <div className="Cardbox-content" category={card_list.category}>
-                                    <div className="Posting_Image">
-                                        <img src={card_list.imgUrl} alt="test-card"
-                                        />
-                                        <button className="LoveButton" onClick={btnclick}>
-                                            {/* 버튼은 이미지 안에 배치 */}
-                                            {/* boolean으로 love값을 전달 default는 false */}
-                                            {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
-                                        </button>
+
+    return (
+        <>
+        { card_list !== undefined || category === "All"
+            ? ( card_list.map((card_list, index) => {
+                console.log(card_list)
+                return (
+                    <div className="Cardbox"
+                        key={index}
+                        // onClick={() => {
+                        //     history(`/detail/${list.postId}`);
+                        // }}
+                    >
+                        <div className="Card" >
+                            <div className="Cardbox-content" category={card_list.category}>
+                                <div className="Posting_Image">
+                                    <img src={card_list.imgUrl} alt="test-card"
+                                    />
+                                    <button className="LoveButton" onClick={btnclick}>
+                                        {/* 버튼은 이미지 안에 배치 */}
+                                        {/* boolean으로 love값을 전달 default는 false */}
+                                        {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
+                                    </button>
+                                
+
                                     </div>
                                     <div className="contentbox">
                                         <div className="PostName">
@@ -87,6 +90,9 @@ const Card = (props) => {
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+             
                     );
                 }))
                 : Cards !== undefined &&
@@ -109,6 +115,7 @@ const Card = (props) => {
                                             {/* boolean으로 love값을 전달 default는 false */}
                                             {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
                                         </button>
+
                                     </div>
                                     <div className="contentbox">
                                         <div className="PostName">

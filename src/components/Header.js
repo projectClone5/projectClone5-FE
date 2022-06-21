@@ -52,7 +52,10 @@ const Header = () => {
                             <button onClick={() => history.push("/Login")} className="Login_btn2">로그인</button>
                             <button onClick={() => history.push("/Signup")} className="Singup_btn2">회원가입</button>
                         </div>
-
+                        <div className="My-button" onClick={() => history.push("/Mypage")}>
+                                <FaRegUser size="25" />
+                                <p>마이</p>
+                            </div>
                     </div>
                     )}
                 </div>

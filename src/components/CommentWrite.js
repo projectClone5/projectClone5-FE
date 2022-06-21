@@ -55,30 +55,20 @@ const CommentWrite = () => {
                 <PhotoUpload>
                   <label>
                     <img
-                      alt=""
+                      alt="미리보기"
                       style={{
                         width: "20px",
                         marginTop: "33px",
                         color: "#e2e2e2",
                       }}
                     />
-                    <input type="file" />
+                    <input type="file" placeholder="사진을 등록해주세요!" />
                   </label>
                 </PhotoUpload>
-                <PhotoUpload1>
-                  <img
-                    style={{ width: "80px", marginTop: "5px" }}
-                    alt=""
-                  />
-                </PhotoUpload1>
               </PotoDiv>
-              <PhotoDesc>
-                사진을 등록해주세요!
-              </PhotoDesc>
             </PotoDivWrap>
           </CommentPhotoWrap>
         </WriteWrap>
-
         <Button
           type="button"
           color="white"
@@ -87,7 +77,6 @@ const CommentWrite = () => {
         >
           등록하기
         </Button>
-
       </WriteContainer>
     </React.Fragment>
   );
@@ -96,16 +85,17 @@ const CommentWrite = () => {
 const ReviewTitle = styled.div`
   height: 36px;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 36px;
   letter-spacing: -0.5px;
   display: flex;
   margin-left: 28px;
 `;
+
 const StarTitle = styled.div`
   height: 36px;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 36px;
   letter-spacing: -1px;
   display: flex;
@@ -148,7 +138,7 @@ const CommentTextTitle = styled.div`
   height: 100%;
   border-top: 1px solid #dddfe1;
   background-color: #f7f7f7;
-  font-size: 12px;
+  font-size: 15px;
   color: #666;
   text-overflow: hidden;
   text-align: center;
@@ -158,9 +148,9 @@ const CommentTextInput = styled.textarea`
   display: flex;
   width: 100%;
   height: 234px;
-  padding: 0 10px;
+  padding: 10px;
   border: 1px solid #dddfe1;
-  font-size: 12px;
+  font-size: 15px;
   color: #000;
   line-height: 18px;
   outline: none;
@@ -173,8 +163,9 @@ const CommentPhotoWrap = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: -133px;
+  margin-top: -95px;
   border-bottom: 1px solid #dddfe1;
+  border-top: 1px solid #dddfe1;
 `;
 
 const PotoDivWrap = styled.div`
@@ -186,31 +177,16 @@ const CommentPhotoTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 41px;
   padding: 0 20 222px;
   width: 151px;
   height: 100%;
   border-top: 1px solid #dddfe1;
   border-bottom: 1px solid #dddfe1;
   background-color: #f7f7f7;
-  font-size: 12px;
+  font-size: 15px;
   color: #666;
   text-overflow: hidden;
   text-align: center;
-`;
-
-const PhotoDesc = styled.div`
-  display: flex;
-  height: 20px;
-  padding: 0 10px;
-  font-size: 12px;
-  text-align: center;
-  word-break: inherit;
-  color: #666;
-  line-height: 18px;
-  outline: none;
-  margin-bottom: -60px;
-  margin-left: 9px;
 `;
 
 const PotoDiv = styled.div`
@@ -219,52 +195,18 @@ const PotoDiv = styled.div`
   margin: -42px 0px 0px 10px;
 `;
 
-const PhotoUpload1 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 80px;
-  height: 80px;
-  margin: 10px 0;
-  border: none;
-  margin: 10px;
-  margin-top: 40px;
-  padding-bottom: 10px;
-  display: block;
-`;
-
 const PhotoUpload = styled.div`
-  /* background-color: yellow; */
   text-align: center;
   width: 80px;
   height: 80px;
-  margin: 10px 0;
   border: 1px solid #dddfe1;
   margin: 10px;
-  margin-top: 40px;
+  margin-top: 30px;
   padding-bottom: 10px;
   display: block;
   input[type="file"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    margin-top : 40px;
   }
-`;
-
-const CommentTitleBorder4 = styled.div`
-  border-top: 1px solid #dddfe1;
-  width: 677px;
-  display: flex;
-  justify-content: center;
-  margin-top: 25.5px;
-  margin-left: -600px;
 `;
 
 const Button = styled.button`
@@ -284,7 +226,7 @@ const Button = styled.button`
 const WriteContainer = styled.div`
   width: 820px;
   margin: 0 auto;
-  padding: 0px 0px 60px 0px;
+  padding: 60px 0;
 `;
 
 export default CommentWrite;
