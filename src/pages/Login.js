@@ -1,10 +1,17 @@
 import React, { useEffect, useState, useRef, useSelector } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Cookies from "universal-cookie";
+import { actionCreators as userActions } from "../redux/modules/user";
+import axios from "axios";
 
 import "../css/Login.css";
 
 const Login = () => {
+    const dispatch = useDispatch();
     const history = useHistory
+
+    // 
 
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
@@ -14,9 +21,33 @@ const Login = () => {
             alert("빈칸을 다 채워주세요.");
             return;
         }
-        // dispatch(userActions.loginDB(userEmail, userPassword));
-        // 로그인 성공시 메인으로 이동
+        dispatch(userActions.loginDB(userEmail, userPassword));
+        // const variables = {
+        //     username : email,
+        //     nickname: nickname,
+        //     password: password,
+        //     passwordCheck: passwordChek
+        // }
+        // axios({
+        //     method: "post",
+        //     url: "http://44.204.90.116/api/user/signup",
+        //     data: JSON.stringify(variables),
+        //     headers: { "content-type": `application/json`
+        //         // "Content-Type": "multipart/form-data"
+        //      }
+             
+        // })
+
+    const cookies = new Cookies();
+    console.log(cookies);
+    console.log(_loginUser);
+    history("/");
     }
+
+
+
+
+    
     return (
         <div className="Login_container">
             <div className="Login_content">

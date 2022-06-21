@@ -5,7 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { Router } from 'react-router-dom'
 import { BrowserRouter } from "react-router-dom";
-
+import { Provider } from "react-redux";
 import store from './redux/store';
 import { history } from './redux/store';
 
@@ -13,8 +13,10 @@ import { history } from './redux/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router history={history}>
-      <BrowserRouter store={store}>
+      <BrowserRouter >
+      <Provider store={store}>
       <App />
+      </Provider>
       </BrowserRouter>
     </Router>
 );

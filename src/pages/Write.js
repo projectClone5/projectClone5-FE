@@ -46,9 +46,9 @@ const Write = (props) => {
             alert('빈칸을 다 채워주세요.');
             return;
         }
-       
+
         let frm = new FormData();
-        
+
         frm.append("title", postTitle)
         frm.append("price", Price)
         frm.append("content", content)
@@ -59,12 +59,12 @@ const Write = (props) => {
         console.log(content);
         console.log(Price);
         console.log(category);
-
+        const token = localStorage.getItem("jwtToken");
         axios({
             method: "post",
-            url: "http://localhost:5001/posts",
+            url: "http://44.204.90.116/api/posts",
             data: frm,
-            headers: { 'Content-Type': 'multipart/form-data' }
+            headers: { 'Content-Type': 'multipart/form-data',"Authorization": `Bearer ${token}` }
         }).then(
             alert("게시글 등록 완료!")
         )
@@ -92,6 +92,7 @@ const Write = (props) => {
     //   console.log(todayYM);
     return (
         <>
+
             <div className="Write-box">
                 <div className="write-container">
                     <div className="Subtitle">게시글 등록</div><br />
@@ -188,6 +189,7 @@ const Write = (props) => {
             </div>
         </div>
     </>
+
     )
 }
 

@@ -1,14 +1,14 @@
 import axios from "axios";
 const api = axios.create({
-    url: "http://localhost:5001",
+    url: "http://44.204.90.116",
     headers: {
-        "content-type": "application/json;charset=UTF-8",
-        accept: "application/json,",
+        "content-type": `application/json;charset=UTF-8`,
+        accept: `application/json`,
     },
 });
 const apiform = axios.create({
 
-    url: "http://localhost:5001",
+    url: "http://44.204.90.116",
     headers: {
         "Content-Type": "multipart/form-data"
     },
@@ -38,7 +38,15 @@ createComment: (comment) =>
 delComment: (id) => api.delete(`/api/comment/${id}`),
 // editComment: (id, coId, content) =>
 // 	api.put(`/api/articles/${id}/comments/${coId}`, { content }),
-
+// user
+login: (username, password) =>
+api.post("http://44.204.90.116/api/user/login", { username: username, password: password }),
+// login: (userEmail, userPassword) =>
+//   api.post("/api/login", {
+//     userEmail: userEmail,
+//     passPassword: userPassword,
+//   }
+//   ),
 }
 
 
