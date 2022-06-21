@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://3.39.226.20", // 요청을 www.aa.com/user로 보낸다면, www.aa.com까지 기록
+  baseURL: "http://44.204.90.116", // 요청을 www.aa.com/user로 보낸다면, www.aa.com까지 기록
 });
 
-const token = localStorage.getItem("token");
+const token = localStorage.getItem("jwtToken");
 
 //토큰이 있을때만 넣어주기
 if (token) {
-  instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  instance.defaults.headers.common["Authorization"] = `${token}`;
 }
 
 // axios.get('https://api.github.com/user', { 

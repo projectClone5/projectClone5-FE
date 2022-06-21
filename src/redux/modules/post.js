@@ -34,14 +34,17 @@ const initialState = {
     list: [],
 };
 
-export const loadPostApi = (id) => async (dispatch) => {
+export const loadPostsApi = () => {
+  return async function (dispatch) {
     try {
-      const { data } = await apis.loadpost(id);
-      dispatch(loadPost_ID(data));
+      console.log("얍");
+      const data = await apis.loadposts();
+      dispatch(loadPosts(data.data));
     } catch (e) {
-      // console.log(`개별 아티클 조회 오류 발생!${e}`);
+      console.log(`포스팅 조회 오류 발생!${e}`);
     }
   };
+};
   
   //포스팅 삭제하기
   export const delPostApi = (id) => {
