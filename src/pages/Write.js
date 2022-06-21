@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { createPost } from "../redux/modules/post";
 // import CKeditor from "../components/CKeditor"
 import axios from "axios";
+import "../css/Write.css";
 
 
 //import DatePicker from "react-datepicker";
@@ -91,95 +92,90 @@ const Write = (props) => {
     //   console.log(todayYM);
     return (
         <>
-            <div className="Write box">
-                <div className="Subtitle">게시글 등록</div><br />
-                <div enctype="multipart/form-data">
-                    {/* 입력정보 받기 */}
-                    <div className="Titleinput">
-                        제목 입력
-                        <input type="text"
-                            placeholder="제목을 입력해주세요"
-                            onChange={(e) => {
-                                setPostTitle(e.target.value);
-                            }}
-                            value={postTitle} id="postContent" />
-                        {/* 인풋박스 크기 조절 필요 */}
-                    </div><br />
-                    <div className="Imageinput">
-
-                        이미지를 등록해주세요
-                        <input type="file" onChange={preview} id="postImage" />
-                        {/* imageview를 구현 크기 조정 필요 */}
-                    </div><br />
+            <div className="Write-box">
+                <div className="write-container">
+                    <div className="Subtitle">게시글 등록</div><br />
+                        <div enctype="multipart/form-data">
+                        {/* 입력정보 받기 */}
+                        <div className="Titleinput">
+                            <input type="text"
+                                placeholder="제목을 입력해주세요"
+                                onChange={(e) => {
+                                    setPostTitle(e.target.value);
+                                }}
+                                value={postTitle} id="postContent" />
+                            {/* 인풋박스 크기 조절 필요 */}
+                        </div>
+                        <div className="Imageinput">
+                            <input type="file" onChange={preview} id="postImage" />
+                            {/* imageview를 구현 크기 조정 필요 */}
+                        </div>
+                    <div className="Category-price">
+                        <div className="CategoryBtn">
+                            <label className="CategorySelect">
+                                <button
+                                    type="radio"
+                                    id="All"
+                                    name="radioButton"
+                                    onClick={(e) => setCategory(e.target.value)}
+                                    value="All"
+                                    defaultChecked
+                                >전체</button>
+                            </label>
+                            <label className="CategorySelect">
+                                <button
+                                    type="radio"
+                                    id="TRIP"
+                                    name="radioButton"
+                                    onClick={(e) => setCategory(e.target.value)}
+                                    value="TRIP"
+                                >여행</button>
+                            </label>
+                            <label className="CategorySelect">
+                                <button
+                                    type="radio"
+                                    id="SPORTS"
+                                    name="radioButton"
+                                    onClick={(e) => setCategory(e.target.value)}
+                                    value="SPORTS"
+                                >운동</button>
+                            </label>
+                            <label className="CategorySelect">
+                                <button
+                                    type="radio"
+                                    id="COOK"
+                                    name="radioButton"
+                                    onClick={(e) => setCategory(e.target.value)}
+                                    value="COOK"
+                                >요리</button>
+                            </label>
+                            <label className="CategorySelect">
+                                <button
+                                    type="radio"
+                                    id="MEETING"
+                                    name="radioButton"
+                                    onClick={(e) => setCategory(e.target.value)}
+                                    value="MEETING"
+                                >모임</button>
+                            </label>
+                        </div>
+                        <div className="Price">
+                            <input type="num" placeholder="가격을 입력해주세요!"
+                                onChange={(e) => {
+                                    setPrice(e.target.value);
+                                }}
+                                value={Price} />
+                        </div>
+                    </div>
                     <div className="Contentinput">
-                        내용
-                        <input type="text"
-                            placeholder="내용을 적어주세요"
-                            onChange={(e) => {
-                                setContent(e.target.value);
-                            }}
-                            value={content} id="postContent" />
-                        {/* 인풋박스 크기 조절 필요 */}
-                    </div><br />
-                    <div className="CategoryBtn">
-                        <label className="CategorySelect">
-                            <button
-                                type="radio"
-                                id="All"
-                                name="radioButton"
-                                onClick={(e) => setCategory(e.target.value)}
-                                value="All"
-                                defaultChecked
-                            >전체</button>
-                        </label>
-                        <label className="CategorySelect">
-                            <button
-                                type="radio"
-                                id="TRIP"
-                                name="radioButton"
-                                onClick={(e) => setCategory(e.target.value)}
-                                value="TRIP"
-                            >여행</button>
-                        </label>
-                        <label className="CategorySelect">
-                            <button
-                                type="radio"
-                                id="SPORTS"
-                                name="radioButton"
-                                onClick={(e) => setCategory(e.target.value)}
-                                value="SPORTS"
-                            >운동</button>
-                        </label>
-                        <label className="CategorySelect">
-                            <button
-                                type="radio"
-                                id="COOK"
-                                name="radioButton"
-                                onClick={(e) => setCategory(e.target.value)}
-                                value="COOK"
-                            >요리</button>
-                        </label>
-                        <label className="categorySelect">
-                            <button
-                                type="radio"
-                                id="BEAUTY"
-                                name="radioButton"
-                                onClick={(e) => setCategory(e.target.value)}
-                                value="BEAUTY"
-                            >뷰티</button>
-                        </label>
-                    </div><br />
-
-                    <div className="Price">
-                        가격입력
-                        <input type="num" placeholder="가격을 입력해주세요!"
-                            onChange={(e) => {
-                                setPrice(e.target.value);
-                            }}
-                            value={Price} />
-
-
-                    </div><br />
+                            <input type="text"
+                                placeholder="내용을 적어주세요"
+                                onChange={(e) => {
+                                    setContent(e.target.value);
+                                }}
+                                value={content} id="postContent" />
+                            {/* 인풋박스 크기 조절 필요 */}
+                    </div>
                     <div className="AddBtn">
                         <button
                             onClick={() => {
@@ -187,10 +183,11 @@ const Write = (props) => {
                                 // navigate("/");
                             }}>프립 등록!</button>
                         {/* 등록 성공시 메인페이지로 이동 */}
-                    </div><br />
+                    </div>
                 </div>
-            </div><br />
-        </>
+            </div>
+        </div>
+    </>
     )
 }
 

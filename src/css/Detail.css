@@ -1,17 +1,95 @@
-.post-container {
+.post-contatinerBox {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+}
+
+.post-container,
+.post-content-container,
+.post-avg-container,
+.post-comment-container {
     width: 100%;
-    max-width: 828px;
+    max-width: 1000px;
     min-height: 1px;
     margin: 0px auto;
     padding-bottom: 100px;
+    padding: 40px 0px;
+    border-top: 1px solid rgb(238, 238, 238);
+    border-bottom: none;
 }
 
 .post-box {
-    position: relative;
     display: flex;
+    flex-flow: column nowrap;
     -webkit-box-flex: 1;
-    flex: 1 1 100%;
+    flex: 1 1 auto;
     width: 100%;
-    height: auto;
-    margin: 0px auto;
+    min-width: 0px;
+    padding: 40px 30px 30px;
+}
+
+.post-detail {
+    display: flex;
+    flex-flow: row;
+}
+
+.post-detail > img {
+    min-width: 0px;
+}
+
+.post-infor {
+    display: flex;
+    flex-flow: column nowrap; 
+    width : 50%;
+    margin : 30px;
+}
+
+.post-like {
+    margin-top: 65px;
+}
+
+.post-like > button {
+    border: none;
+    background-color: transparent;
+    cursor : pointer;
+}
+
+.post-title {
+    font-size: 30px;
+}
+
+.post-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.post-avg {
+    display: flex;
+    flex-flow: row;
+}
+
+.post-avg > svg {
+    margin-top : 20px;
+}
+
+.post-avg > p {
+    margin: 30px;
+}
+
+.post-avg-number {
+    font-size : 20px;
+    font-weight: bold;
+}
+
+
+.fixed {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 12px 20px 24px;
+    box-shadow: rgb(0 0 0 / 8%) 0px -10px 30px -10px;
+    background-color: white;
+    z-index: 200;
 }
