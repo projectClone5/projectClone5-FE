@@ -8,15 +8,24 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import '../css/Card.css';
 import card from "../assets/card.png";
 
-const Card = () => {
-
+const Card = (props) => {
+    // const dispatch = useDispatch();
     const history = useHistory;
+    // const card_list = useSelector((state) => state.post.list);
+    const category = props.checkedInputs;
+    // const Cards = card_list.posts;
+
+    // const filteredCategory =
+    // Cards !== undefined && Cards.filter((v) => v.postCategory === category);
+
 
     const [click, setClick] = useState(false);
 
     const btnclick = () => {
         click ? setClick(false) : setClick(true);
     }
+
+
 
     return (
 
