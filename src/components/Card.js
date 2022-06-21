@@ -21,7 +21,9 @@ const Card = (props) => {
     // const filteredCategory =
     // Cards !== undefined && Cards.filter((v) => v.postCategory === category);
 
-
+    // useEffect(() => {
+    //     dispatch(loadPostsApi());
+    //   }, [dispatch]);
     const [click, setClick] = useState(false);
 
     const btnclick = () => {
