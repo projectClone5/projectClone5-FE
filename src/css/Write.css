@@ -78,6 +78,10 @@
     box-shadow: 0px 5px 20px #00000040;
 }
 
+.CategorySelect > button:focus {
+     background-color: #00000040;
+}
+
 .Price > input {
     width: 350px;
 }

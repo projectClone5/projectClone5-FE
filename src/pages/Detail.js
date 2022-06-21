@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-import Comment from "../components/Comment";
+import CommentWrite from "../components/CommentWrite";
+import CommentList from "../components/CommentList";
 import card from "../assets/card.png";
 import "../css/Detail.css"
 
@@ -42,7 +43,6 @@ const Detail = (list) => {
         </div>
         <div className="post-avg-container">
             <div className="post-avg">
-
                     <AiFillStar color="red" size="40"/>
                     <AiFillStar color="red" size="40"/>
                     <AiFillStar color="red" size="40"/>
@@ -58,9 +58,9 @@ const Detail = (list) => {
             </div>
         </div>    
     </div>
-    <div className="fixed">
 
-    </div>
+        <CommentList />
+
     </>
     )
 }

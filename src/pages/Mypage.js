@@ -30,6 +30,7 @@ const Mypage = () => {
                     </div>
                 </div>
                 <div className="my-post-content">
+                    <p>나의 찜 목록 💗</p>
                     <Card />
                 </div>
             </div>

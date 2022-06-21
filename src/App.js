@@ -8,6 +8,9 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import Mypage from "./pages/Mypage";
+import CategoryDetail from "./pages/CategoryDetail";
+import All from "./pages/All";
+import CommentWrite from "./components/CommentWrite";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
         <Route exact path="/Signup" component={Signup} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Mypage" component={Mypage} />
+        <Route exact path="/CategoryDetail" component={CategoryDetail} />
+        <Route exact path="/All" component={All} />
+        <Route exact path="/CommentWrite" component={CommentWrite} />
       </Switch>
       <Footer />
     </div>

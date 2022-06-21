@@ -61,12 +61,14 @@
 
 .CategoryCheck > svg {
   margin : 30px 0 10px 0;
+  cursor : pointer;
 }
 
 .CategoryCheck > img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .card-container {
