@@ -10,10 +10,10 @@ const Mypage = () => {
     const [modalOpen, setModalOpen] = React.useState(false);
 
     const openModal = () => {
-      setModalOpen(true);
+        setModalOpen(true);
     };
     const closeModal = () => {
-      setModalOpen(false);
+        setModalOpen(false);
     };
 
     return (
@@ -21,7 +21,7 @@ const Mypage = () => {
             <div className="Mypage-content">
                 <div className="user-content">
                     <div className="user">
-                        <img src={profile} alt="프로필"/>
+                        <img src={profile} alt="프로필" />
                     </div>
                     <div className="nickname-title">
                         <p>닉네임 자리입니다.</p>

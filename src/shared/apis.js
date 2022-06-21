@@ -23,8 +23,8 @@ const apiform = axios.create({
   
 export const apis = {
 // post"
-loadposts: () => api.get("/api/posts"),
-loadpost: (id) => api.get(`/api/post/${id}`),
+loadposts: () => api.get(`http://44.204.90.116/api/posts`),
+loadpost: (postid) => api.get(`http://44.204.90.116/api/post/${postid}`),
 
 addpost: (post) => api.post("/api/write", post),
 // edit: (id, contents) => api.put(`api/articles/${id}`, contents),

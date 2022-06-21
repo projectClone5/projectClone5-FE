@@ -60,11 +60,12 @@ const Write = (props) => {
         console.log(Price);
         console.log(category);
         const token = localStorage.getItem("jwtToken");
+
         axios({
             method: "post",
             url: "http://44.204.90.116/api/posts",
             data: frm,
-            headers: { 'Content-Type': 'multipart/form-data',"Authorization": `Bearer ${token}` }
+            headers: { 'Content-Type': 'multipart/form-data',"Authorization": `${token}` }
         }).then(
             alert("게시글 등록 완료!")
         )
@@ -156,7 +157,7 @@ const Write = (props) => {
                                     id="MEETING"
                                     name="radioButton"
                                     onClick={(e) => setCategory(e.target.value)}
-                                    value="MEETING"
+                                    value="SPORTS"
                                 >모임</button>
                             </label>
                         </div>

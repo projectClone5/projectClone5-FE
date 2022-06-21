@@ -42,7 +42,7 @@ const loginDB = (userEmail, userPassword) => {
         .then((res) => {
           console.log(res);
           console.log(res.headers);
-          const cookie = res.headers.Authorization;
+          const cookie = res.headers.authorization;
               // setCookie("token", _cookie, 7);
           // const DecodedToken = jwt_decode(cookie);
           console.log(cookie);
@@ -71,6 +71,17 @@ const loginDB = (userEmail, userPassword) => {
       };
     };
 
+    export const logoutDB = () => {
+      return function (dispatch, getState, ) {
+        dispatch(logOut());
+        localStorage.removeItem("email");
+        
+        // navigate.replace("/");
+      };
+    };
+
+
+
 
 export default handleActions(
     {
@@ -89,7 +100,7 @@ export default handleActions(
   const actionCreators = {
     // SignupDB,
     loginDB,
-    // logoutDB,
+    logoutDB,
     // loginCheck,
   };
   export { actionCreators };
