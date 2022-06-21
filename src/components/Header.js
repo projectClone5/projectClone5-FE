@@ -26,7 +26,9 @@ const Header = () => {
             <div className="Header-wrap">
                 <div className="Header-content">
                     <div className="entire">
-                        <BiCategory size="20" color="#333333" />
+
+                        <BiCategory size="20" color="#333333" onClick={() => history.push("/All")}/>
+
                         <span className="wall"></span>
                         <Link to="/">
                             <img src={Logo} alt="Logo" />
