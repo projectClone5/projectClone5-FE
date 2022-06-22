@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-import CommentWrite from "../components/CommentWrite";
 import CommentList from "../components/CommentList";
-import card from "../assets/card.png";
 import "../css/Detail.css"
 
-const Detail = (list) => {
+const Detail = () => {
     
     const [click, setClick] = useState(false);
 
@@ -17,16 +14,19 @@ const Detail = (list) => {
         click ? setClick(false) : setClick(true);
     }
     
+    const postId = useParams().postId;
+    const index = useParams().index;
+
     return (
         <>
     <div className="post-contatinerBox">
         <div className="post-container">
             <div className="post-box">
                 <div className="post-detail">
-                    <img src={card} alt="게시글 사진" />
+                    <img alt="게시글 사진" />
                     <div className="post-infor">
-                        <p className="post-title">한강 선셋 패들보드</p>
-                        <p className="post-price">30,000원</p>
+                        <p className="post-title"></p>
+                        <p className="post-price"></p>
                     </div>
                     <div className="post-like">
                         <button className="LoveButton" onClick={btnclick}>
@@ -49,7 +49,7 @@ const Detail = (list) => {
                     <AiFillStar color="red" size="40"/>
                     <AiFillStar color="red" size="40"/>
                 <p className="post-avg-number">5</p>
-                <p>154개 후기</p>
+                <p>개 후기</p>
             </div>
         </div>
         <div className="post-comment-container">
@@ -58,9 +58,7 @@ const Detail = (list) => {
             </div>
         </div>    
     </div>
-
-        <CommentList />
-
+        <CommentList postId={postId} />
     </>
     )
 }

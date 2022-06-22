@@ -12,8 +12,8 @@ import { loadPostsApi } from "../redux/modules/post";
 
 const Card = (props) => {
     // const dispatch = useDispatch();
-    const history = useHistory;
-    const dispatch = useDispatch()
+    const history = useHistory();
+    const dispatch = useDispatch();
     const card_list = useSelector((state) => state.post.list);
     const category = props.checkedInputs;
     const Cards = card_list.postId;
@@ -56,14 +56,13 @@ const Card = (props) => {
                             <div className="Cardbox-content" category={card_list.category}>
                                 <div className="Posting_Image">
                                     <img src={card_list.imgUrl} alt="test-card"
+                                    onClick={() => { history.push("/Detail/" + index + "/" + `${card_list.postId}`)}}
                                     />
                                     <button className="LoveButton" onClick={btnclick}>
                                         {/* 버튼은 이미지 안에 배치 */}
                                         {/* boolean으로 love값을 전달 default는 false */}
                                         {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
                                     </button>
-                                
-
                                     </div>
                                     <div className="contentbox">
                                         <div className="PostName">
@@ -90,9 +89,6 @@ const Card = (props) => {
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-             
                     );
                 }))
                 : Cards !== undefined &&

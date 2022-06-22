@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addCommentFB } from "../redux/modules/comment";
 import styled from "styled-components";
 
 const CommentWrite = () => {
+
+  const dispatch = useDispatch();
+
 
   return (
     <React.Fragment>
