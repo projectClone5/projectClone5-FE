@@ -4,6 +4,7 @@ import { loadCommentFB, addCommentFB, deleteCommentFB } from "../redux/modules/c
 import { FaStar } from 'react-icons/fa';
 import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
+import axios from "axios";
 
 const CommentList = ({ postId }) => {
 
@@ -23,7 +24,10 @@ const CommentList = ({ postId }) => {
   };
 
   let reviewPoint = clicked.filter(Boolean).length;
+  const pointStar = parseInt(reviewPoint);
 
+
+ 
   console.log(clicked);
   console.log(typeof (reviewPoint));
   console.log(parseInt(reviewPoint));
@@ -33,12 +37,49 @@ const CommentList = ({ postId }) => {
     dispatch(loadCommentFB(postId));
   }, []);
 
-  const addcomment = () => {
-    dispatch(addCommentFB(
-      postId, comment, parseInt(reviewPoint)));
-    setComment("")
+  // const addcomment = () => {
+  //   dispatch(addCommentFB(
+  //     postId, comment, parseInt(reviewPoint)));
+  //   setComment("")
    
+  // }
+  const token = localStorage.getItem("jwtToken");
+
+
+
+
+  const variables = {
+    postId: postId,
+    comment: comment,
+    reviewPoint :pointStar
   }
+
+const addcomment = (e) => {
+  axios({
+    method: "post",
+    url: `http://44.204.90.116/api/post/${postId}/comment`,
+    data: JSON.stringify(variables),
+    headers: {
+        "Content-type": `application/json`,"Authorization": `${token}`
+        // "Content-Type": "multipart/form-data"
+    }
+
+}).then((res) => {
+            alert("게시글 등록 완료!")
+            console.log(res);
+
+}).catch(error => {
+  console.log(error.response)
+});
+console.log(variables);
+}
+
+
+
+
+
+
+
 
   return (
     <div className="Review">

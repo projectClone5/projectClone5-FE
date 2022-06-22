@@ -42,7 +42,7 @@ const Login = () => {
     console.log(cookies);
     console.log(_loginUser);
     history.push("/");
-    window.location.reload();
+    // window.location.reload();
     }
 
 
