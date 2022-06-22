@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/Detail" component={Detail} />
+        <Route exact path="/Detail/:index/:postId" component={Detail} />
         {/* 카테고리 필터값 받아서 이동 */}
         <Route exact path="/Write" component={Write} />
         <Route exact path="/Signup" component={Signup} />

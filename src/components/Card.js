@@ -13,9 +13,11 @@ import _ from "lodash";
 
 const Card = (props) => {
     // const dispatch = useDispatch();
+
     const history = useHistory;
     const dispatch = useDispatch()
     //main에서 보낸 props를 filter값으로 저장
+
     const category = props.checkedInputs;
     const card_list = useSelector((state) => state.post.list);
     
@@ -51,6 +53,7 @@ const Card = (props) => {
 
     return (
         <>
+
             {Cards !== undefined || category === "All"
                 ? (Cards.map((card_list, index) => {
                     console.log(card_list)
@@ -71,6 +74,7 @@ const Card = (props) => {
                                             {/* boolean으로 love값을 전달 default는 false */}
                                             {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
                                         </button>
+
 
 
                                     </div>
@@ -99,8 +103,6 @@ const Card = (props) => {
                                 </div>
                             </div>
                         </div>
-
-
 
                     );
                 }))

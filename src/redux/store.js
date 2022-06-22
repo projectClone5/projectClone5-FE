@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import post from "./modules/post"
 import user from "./modules/user";
+import comment from "./modules/comment";
 import { createBrowserHistory } from "history";
 
 const rootReducer = combineReducers({
     post,
-    user
+    user,
+    comment,
 })
 
 export const history = createBrowserHistory();

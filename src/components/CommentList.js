@@ -1,10 +1,43 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"; 
+import { loadCommentFB, addCommentFB, deleteCommentFB } from "../redux/modules/comment";
+import { FaStar } from 'react-icons/fa';
 import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
 
-const CommentList = () => {
+const CommentList = ({postId}) => {
 
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const [comment, setComment] = React.useState("");
+    const [clicked, setClicked] = useState([false, false, false, false, false]);
+    const data = useSelector((state) => state.comment.commentList);
+
+    const handleStarClick = index => {
+      let clickStates = [...clicked];
+      for (let i = 1; i < 6; i++) {
+        clickStates[i] = i <= index ? true : false;
+      }
+      setClicked(clickStates);
+    };
+
+    let reviewPoint = clicked.filter(Boolean).length;
+
+    console.log(clicked);
+    console.log(typeof(reviewPoint));
+    console.log(parseInt(reviewPoint));
+    console.log(reviewPoint);
+
+    React.useEffect (() => {
+      dispatch(loadCommentFB(postId));
+    }, []);
+
+    const addcomment = () => {
+      dispatch(addCommentFB(
+        postId, comment, parseInt(reviewPoint)));
+          setComment("")
+  }
 
     return (
       <div className="Review">
@@ -26,7 +59,7 @@ const CommentList = () => {
 
           <CommentTable>
             <TableInfo>
-              <InfoItem
+{/*               <InfoItem
                 style={{
                   width: "400px",
                   textAlign: "left",
@@ -39,11 +72,24 @@ const CommentList = () => {
 
               <ReveiwButtonWrap>
                 <ReviewButton onClick={() => history.push("/CommentWrite")}>후기작성</ReviewButton>
-              </ReveiwButtonWrap>
-
+              </ReveiwButtonWrap> */}
+              <Stars>
+                {[1, 2, 3, 4, 5].map((el, idx) => {
+                  return (
+                    <FaStar
+                      key={idx}
+                      size="35"
+                      onClick={() => handleStarClick(el)}
+                      className={clicked[el] && 'ReadStar'}
+                    />
+                  );
+                })}
+              </Stars>
+              <input type="text" placeholder="후기를 등록해주세요!" value={comment} onChange={(e) => setComment(e.target.value)} />
+              <button onClick={addcomment}>작성하기</button>
             </TableInfo>
           </CommentTable>
-  
+        {data.map((list, index) => {
           <ReviewTable>
             <InfoName>
               <span
@@ -53,15 +99,15 @@ const CommentList = () => {
                   paddingTop: "15px",
                   fontWeight: "bold",
                 }}
-              >유저 닉네임
+              >유저이름
               </span>
-              <button className="btn1">수정</button>
-              <button className="btn2">삭제</button>
+              <button className="btn1" onClick={() => history.push("/CommentWrite")}>수정</button>
+              <button className="btn2" onClick={() => dispatch(deleteCommentFB(list.commentId))}>삭제</button>
             </InfoName>
-          
+{/*           
             <Reviewphoto>
                 후기 사진
-            </Reviewphoto>
+            </Reviewphoto> */}
 
             <InfoItem
               style={{
@@ -70,9 +116,10 @@ const CommentList = () => {
                 marginLeft: "5px",
               }}
             >
-            후기 내용
+
             </InfoItem>
           </ReviewTable>
+        })}
         </CommentListWrap>
       </div>
     )}
@@ -83,17 +130,6 @@ const CommentListWrap = styled.div`
   margin-bottom: 80px;
   padding-right: 40px;
   width: 1000px;
-`;
-
-const Star = styled.div`
-  font-size: 38px;
-  display: inline-block;
-  vertical-align: middle;
-`;
-
-const LitteStar = styled.div`
-  font-size: 15px;
-  display: inline-block;
 `;
 
 const CommentInfo = styled.ul`
@@ -130,14 +166,23 @@ const TableInfo = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid #e3e3e3;
-`;
-
-const Reviewphoto = styled.div`
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  display: flex;
-  justify-content: flex-start;
+  input {
+    width : 70%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid gray;
+  }
+  button {
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0 20px;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    border: 1px solid gray;
+    font-size: 15px;
+  }
 `;
 
 const InfoItem = styled.div`
@@ -188,31 +233,25 @@ const InfoName = styled.div`
     }
 `;
 
-const ReveiwButtonWrap = styled.div`
-  padding: 10px 0px;
-  width: 100%;
-  height: 95px;
+const Stars = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
+  padding-top: 5px;
+  margin-right : 10px;
+  & svg {
+    color: gray;
+    cursor: pointer;
+  }
 
-const ReviewButton = styled.button`
-  padding: 0;
-  width: 128px;
-  height: 30px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 30px;
-  background-color: transparent;
-  color: black;
-  border: 1px solid #042b0a;
-  border-radius: 5px;
-  cursor: pointer;
-  box-sizing: content-box;
-  &:hover {
-    background-color: black;
-    color: white;
+  :hover svg {
+    color: red;
+  }
+
+  & svg:hover ~ svg {
+    color: gray;
+  }
+
+  .ReadStar {
+    color: red;
   }
 `;
 
