@@ -9,7 +9,7 @@ import "../css/Login.css";
 
 const Login = () => {
     const dispatch = useDispatch();
-    const history = useHistory
+    const history = useHistory();
 
     // 
 
@@ -41,7 +41,8 @@ const Login = () => {
     const cookies = new Cookies();
     console.log(cookies);
     console.log(_loginUser);
-    history("/");
+    history.push("/");
+    window.location.reload();
     }
 
 
@@ -66,7 +67,7 @@ const Login = () => {
                         }}
                         value={userPassword} />
 
-                    <button className="Login_btn" onClick={_loginUser}>로그인</button>
+                    <button className="Login_btn" onClick={_loginUser} >로그인</button>
 
                     <p>계정이 없으신가요? &nbsp;
                         <a href={"/Signup"}>회원가입</a>

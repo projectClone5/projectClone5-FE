@@ -11,6 +11,7 @@ import {
     userInfoDB,
     logoutDB,
   } from "../redux/modules/user";
+
 const Header = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -19,7 +20,8 @@ const Header = () => {
     const is_login = localStorage.getItem("jwtToken");
     const logout = (e) => {
         localStorage.removeItem("jwtToken");
-        history("/")
+        history.push("/")
+        window.location.reload();
     }
     return (
         <div className="Header-container">
@@ -38,8 +40,11 @@ const Header = () => {
                         <div className="mypage">
                             <div className="Logout-button">
                                 <button onClick={() => {
-                                    dispatch(logoutDB());
-                                }} className="Logout">로그아웃</button>
+                                    dispatch(logout());
+                                    
+                                }} className="Logout" 
+                                
+                                >로그아웃</button>
 
                             </div>
                             <div className="My-button" onClick={() => history.push("/Mypage")}>
