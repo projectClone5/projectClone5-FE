@@ -63,7 +63,7 @@ const Write = (props) => {
 
         axios({
             method: "post",
-            url: "http://44.204.90.116/api/posts",
+            url: "http://3.35.230.132/api/posts",
             data: frm,
             headers: { 'Content-Type': 'multipart/form-data',"Authorization": `${token}` }
         }).then(

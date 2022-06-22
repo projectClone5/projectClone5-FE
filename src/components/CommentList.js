@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCommentFB, addCommentFB, deleteCommentFB } from "../redux/modules/comment";
+import { loadCommentFB, addCommentFB, editCommentFB, deleteCommentFB } from "../redux/modules/comment";
 import { FaStar } from 'react-icons/fa';
 import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
@@ -13,6 +13,7 @@ const CommentList = ({ postId }) => {
   const [comment, setComment] = React.useState("");
   const [clicked, setClicked] = useState([false, false, false, false, false]);
   const data = useSelector((state) => state.comment.commentList);
+  console.log(data)
 
   const handleStarClick = index => {
     let clickStates = [...clicked];
@@ -24,20 +25,14 @@ const CommentList = ({ postId }) => {
 
   let reviewPoint = clicked.filter(Boolean).length;
 
-  console.log(clicked);
-  console.log(typeof (reviewPoint));
-  console.log(parseInt(reviewPoint));
-  console.log(reviewPoint);
-
   React.useEffect(() => {
     dispatch(loadCommentFB(postId));
   }, []);
 
   const addcomment = () => {
     dispatch(addCommentFB(
-      postId, comment, parseInt(reviewPoint)));
+      postId, comment, reviewPoint));
     setComment("")
-   
   }
 
   return (
@@ -60,20 +55,6 @@ const CommentList = ({ postId }) => {
 
         <CommentTable>
           <TableInfo>
-            {/*               <InfoItem
-                style={{
-                  width: "400px",
-                  textAlign: "left",
-                  marginLeft: "5px",
-                  fontSize: "23px",
-                }}
-              >
-                포토후기
-              </InfoItem>
-
-              <ReveiwButtonWrap>
-                <ReviewButton onClick={() => history.push("/CommentWrite")}>후기작성</ReviewButton>
-              </ReveiwButtonWrap> */}
             <Stars>
               {[1, 2, 3, 4, 5].map((el, idx) => {
                 return (
@@ -90,6 +71,7 @@ const CommentList = ({ postId }) => {
             <button onClick={addcomment}>작성하기</button>
           </TableInfo>
         </CommentTable>
+
         {data.map((list, index) => {
           <ReviewTable>
             <InfoName>
@@ -100,15 +82,11 @@ const CommentList = ({ postId }) => {
                   paddingTop: "15px",
                   fontWeight: "bold",
                 }}
-              >유저이름
+              >{list.nickName}
               </span>
               <button className="btn1" onClick={() => history.push("/CommentWrite")}>수정</button>
               <button className="btn2" onClick={() => dispatch(deleteCommentFB(list.commentId))}>삭제</button>
             </InfoName>
-            {/*           
-            <Reviewphoto>
-                후기 사진
-            </Reviewphoto> */}
 
             <InfoItem
               style={{
@@ -117,7 +95,7 @@ const CommentList = ({ postId }) => {
                 marginLeft: "5px",
               }}
             >
-
+            {list.comment}
             </InfoItem>
           </ReviewTable>
         })}

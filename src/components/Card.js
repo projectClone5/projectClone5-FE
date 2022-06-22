@@ -53,7 +53,7 @@ const Card = (props) => {
     return (
         <>
 
-            {Cards !== undefined || category === "All"
+            {Cards !== undefined 
                 ? (Cards.map((card_list, index) => {
                     console.log(card_list)
                     return (
