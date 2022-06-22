@@ -9,7 +9,7 @@ import "../css/Detail.css"
 const Detail = () => {
     
     const [click, setClick] = useState(false);
-
+    
     const btnclick = () => {
         click ? setClick(false) : setClick(true);
     }
