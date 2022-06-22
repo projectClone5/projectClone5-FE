@@ -51,7 +51,7 @@ const Signup = () => {
             //   },
             // })
             .then((res) => {
-                alert("회원가입 완료!")
+                alert("게시글 등록 완료!")
                 console.log(res);
             })
         console.log(variables);
