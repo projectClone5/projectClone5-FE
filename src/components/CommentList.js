@@ -40,25 +40,7 @@ const CommentList = ({ postId }) => {
 
   }
 
-const addcomment = (e) => {
-  axios({
-    method: "post",
-    url: `http://44.204.90.116/api/post/${postId}/comment`,
-    data: JSON.stringify(variables),
-    headers: {
-        "Content-type": `application/json`,"Authorization": `${token}`
-        // "Content-Type": "multipart/form-data"
-    }
 
-}).then((res) => {
-            alert("게시글 등록 완료!")
-            console.log(res);
-
-}).catch(error => {
-  console.log(error.response)
-});
-console.log(variables);
-}
 
 
 

@@ -9,6 +9,8 @@ import '../css/Card.css';
 import card from "../assets/card.png";
 import { loadPosts } from "../redux/modules/post";
 import { loadPostsApi } from "../redux/modules/post";
+import _ from "lodash";
+
 
 const Card = (props) => {
     // const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const Card = (props) => {
     const dispatch = useDispatch();
     const card_list = useSelector((state) => state.post.list);
     const category = props.checkedInputs;
-    const Cards = card_list.postId;
+    // const Cards = card_list.postId;
 
     // const Cards = card_list.posts;
 
@@ -29,11 +31,11 @@ const Card = (props) => {
     }, [dispatch]);
 
     //filter값으로 필요한 값을 가져오기
-    //const Cards = _.filter(card_list, { category: category });
-    //console.log(Cards)
+    const Cards = _.filter(card_list, { category: category });
+    console.log(Cards)
 
     console.log(props)
-    console.log(card_list[0])
+    // console.log(card_list[0])
     //console.log(Cards)
     const [click, setClick] = useState(false);
 
