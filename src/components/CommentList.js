@@ -1,65 +1,66 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux"; 
+import { useDispatch, useSelector } from "react-redux";
 import { loadCommentFB, addCommentFB, deleteCommentFB } from "../redux/modules/comment";
 import { FaStar } from 'react-icons/fa';
 import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
 
-const CommentList = ({postId}) => {
+const CommentList = ({ postId }) => {
 
-    const history = useHistory();
-    const dispatch = useDispatch();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-    const [comment, setComment] = React.useState("");
-    const [clicked, setClicked] = useState([false, false, false, false, false]);
-    const data = useSelector((state) => state.comment.commentList);
+  const [comment, setComment] = React.useState("");
+  const [clicked, setClicked] = useState([false, false, false, false, false]);
+  const data = useSelector((state) => state.comment.commentList);
 
-    const handleStarClick = index => {
-      let clickStates = [...clicked];
-      for (let i = 1; i < 6; i++) {
-        clickStates[i] = i <= index ? true : false;
-      }
-      setClicked(clickStates);
-    };
+  const handleStarClick = index => {
+    let clickStates = [...clicked];
+    for (let i = 1; i < 6; i++) {
+      clickStates[i] = i <= index ? true : false;
+    }
+    setClicked(clickStates);
+  };
 
-    let reviewPoint = clicked.filter(Boolean).length;
+  let reviewPoint = clicked.filter(Boolean).length;
 
-    console.log(clicked);
-    console.log(typeof(reviewPoint));
-    console.log(parseInt(reviewPoint));
-    console.log(reviewPoint);
+  console.log(clicked);
+  console.log(typeof (reviewPoint));
+  console.log(parseInt(reviewPoint));
+  console.log(reviewPoint);
 
-    React.useEffect (() => {
-      dispatch(loadCommentFB(postId));
-    }, []);
+  React.useEffect(() => {
+    dispatch(loadCommentFB(postId));
+  }, []);
 
-    const addcomment = () => {
-      dispatch(addCommentFB(
-        postId, comment, parseInt(reviewPoint)));
-          setComment("")
+  const addcomment = () => {
+    dispatch(addCommentFB(
+      postId, comment, parseInt(reviewPoint)));
+    setComment("")
+   
   }
 
-    return (
-      <div className="Review">
-        <CommentListWrap>
-          <CommentInfo>
-            <li>
-              <div
-                style={{
-                  width: "4px",
-                  height: "4px",
-                  margin: "7px 8px 0 0",
-                  backgroundColor: "#514859",
-                  verticalAlign: "2px",
-                }}
-              ></div>
-              리뷰를 남기는 공간입니다.
-            </li>
-          </CommentInfo>
+  return (
+    <div className="Review">
+      <CommentListWrap>
+        <CommentInfo>
+          <li>
+            <div
+              style={{
+                width: "4px",
+                height: "4px",
+                margin: "7px 8px 0 0",
+                backgroundColor: "#514859",
+                verticalAlign: "2px",
+              }}
+            ></div>
+            리뷰를 남기는 공간입니다.
+          </li>
+        </CommentInfo>
 
-          <CommentTable>
-            <TableInfo>
-{/*               <InfoItem
+        <CommentTable>
+          <TableInfo>
+            {/*               <InfoItem
                 style={{
                   width: "400px",
                   textAlign: "left",
@@ -73,22 +74,22 @@ const CommentList = ({postId}) => {
               <ReveiwButtonWrap>
                 <ReviewButton onClick={() => history.push("/CommentWrite")}>후기작성</ReviewButton>
               </ReveiwButtonWrap> */}
-              <Stars>
-                {[1, 2, 3, 4, 5].map((el, idx) => {
-                  return (
-                    <FaStar
-                      key={idx}
-                      size="35"
-                      onClick={() => handleStarClick(el)}
-                      className={clicked[el] && 'ReadStar'}
-                    />
-                  );
-                })}
-              </Stars>
-              <input type="text" placeholder="후기를 등록해주세요!" value={comment} onChange={(e) => setComment(e.target.value)} />
-              <button onClick={addcomment}>작성하기</button>
-            </TableInfo>
-          </CommentTable>
+            <Stars>
+              {[1, 2, 3, 4, 5].map((el, idx) => {
+                return (
+                  <FaStar
+                    key={idx}
+                    size="35"
+                    onClick={() => handleStarClick(el)}
+                    className={clicked[el] && 'ReadStar'}
+                  />
+                );
+              })}
+            </Stars>
+            <input type="text" placeholder="후기를 등록해주세요!" value={comment} onChange={(e) => setComment(e.target.value)} />
+            <button onClick={addcomment}>작성하기</button>
+          </TableInfo>
+        </CommentTable>
         {data.map((list, index) => {
           <ReviewTable>
             <InfoName>
@@ -104,7 +105,7 @@ const CommentList = ({postId}) => {
               <button className="btn1" onClick={() => history.push("/CommentWrite")}>수정</button>
               <button className="btn2" onClick={() => dispatch(deleteCommentFB(list.commentId))}>삭제</button>
             </InfoName>
-{/*           
+            {/*           
             <Reviewphoto>
                 후기 사진
             </Reviewphoto> */}
@@ -120,9 +121,10 @@ const CommentList = ({postId}) => {
             </InfoItem>
           </ReviewTable>
         })}
-        </CommentListWrap>
-      </div>
-    )}
+      </CommentListWrap>
+    </div>
+  )
+}
 
 const CommentListWrap = styled.div`
   margin: 5px auto;
