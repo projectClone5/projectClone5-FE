@@ -29,6 +29,9 @@ const Main = (list) => {
         
     };
 
+
+    
+
     return (
         <>
             <div className="banner">
@@ -134,7 +137,7 @@ const Main = (list) => {
                             <h3>가장 많은 댓글 포스트 4개 출력</h3>
                         </div>
                         <div className="card">
-                            {/* <Card /> */}
+                            <Card checkedInputs="COOK"/>
                         </div>
                     </div>
                 </div>
@@ -144,7 +147,7 @@ const Main = (list) => {
                             <h3>가장 많은 찜 포스트 4개 출력</h3>
                         </div>
                         <div className="card">
-                            {/* <Card /> */}
+                            <Card checkedInputs="TRIP"/>
                         </div>
                     </div>
                 </div>   
@@ -154,7 +157,7 @@ const Main = (list) => {
                             <h3>가장 낮은 가격 포스트 4개 출력</h3>
                         </div>
                         <div className="card">
-                            {/* <Card /> */}
+                            <Card checkedInputs="GATHERING"/>
                         </div>
                     </div>
                 </div>    
