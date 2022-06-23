@@ -16,8 +16,9 @@ const Header = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    const is_session = localStorage.getItem("jwtToken") ? true : false;
+    const is_login = useSelector((state) => state.user.is_login)
 
-    const is_login = localStorage.getItem("jwtToken");
     const logout = (e) => {
         localStorage.removeItem("jwtToken");
         history.push("/")
@@ -36,7 +37,7 @@ const Header = () => {
                             <img src={Logo} alt="Logo" />
                         </Link>
                     </div>
-                    {is_login ? (
+                    {is_login === true || is_session === true ? (
                         <div className="mypage">
                             <div className="Logout-button">
                                 <button onClick={() => {

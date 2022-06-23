@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadCommentFB, addCommentFB, editCommentFB, deleteCommentFB } from "../redux/modules/comment";
 import { FaStar } from 'react-icons/fa';
 import styled from "styled-components";
-import { useHistory } from 'react-router-dom';
 
 const CommentList = ({ postId }) => {
 
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const [comment, setComment] = React.useState("");
+  const [edit, setEdit] = React.useState(false);
+  const [editcomment, setEditcomment] = React.useState("");
   const [clicked, setClicked] = useState([false, false, false, false, false]);
   const data = useSelector((state) => state.comment.commentList);
+  const user = useSelector((state) => state.user.user);
+  console.log(user)
 
   const handleStarClick = index => {
     let clickStates = [...clicked];
@@ -27,6 +29,10 @@ const CommentList = ({ postId }) => {
   React.useEffect(() => {
     dispatch(loadCommentFB(postId));
   }, [comment]);
+
+  React.useEffect(() => {
+    dispatch(loadCommentFB(postId));
+  }, [editcomment]);
 
   const addcomment = () => {
     dispatch(addCommentFB(
@@ -71,7 +77,7 @@ const CommentList = ({ postId }) => {
               placeholder="후기를 등록해주세요!" 
               value={comment} 
               onChange={(e) => setComment(e.target.value)} />
-            <button onClick={addcomment}>작성하기</button>
+            <button onClick={addcomment}>작성하기</button> 
           </TableInfo>
         </CommentTable>
 
@@ -83,23 +89,43 @@ const CommentList = ({ postId }) => {
                 style={{
                   width: "100px",
                   fontSize: "18px",
-                  paddingTop: "15px",
+                  paddingTop: "20px",
                   fontWeight: "bold",
                 }}
-              >{list.nickName}
+              >{list.nickname}
               </span>
-              <button className="btn1" onClick={() => dispatch(editCommentFB(list.commentId, comment))}>수정</button>
+
+              {[1, 2, 3, 4, 5].map((star, i) => {
+                return (
+                  <FaStar
+                    key={i}
+                    size="20"
+                    style={{color : list.reviewPoint > i ?  ('red') : ('gray')}}
+                  />
+                  )
+                })}
+                {edit === false ? 
+                <>
+              <button className="btn1" onClick={() => setEdit(true)}>수정</button>
               <button className="btn2" onClick={() => dispatch(deleteCommentFB(list.commentId))}>삭제</button>
+              </>
+              : null }
             </InfoName>
 
             <InfoItem
               style={{
                 textAlign: "left",
-                fontSize: "16px",
+                fontSize: "20px",
                 marginLeft: "5px",
               }}
             >
-            {list.comment}
+            {edit === true  ? 
+                <>
+                  <input type="text" onChange={(e) => setEditcomment(e.target.value)}/>
+                  <button onClick={() => {dispatch(editCommentFB(list.commentId, editcomment)); 
+                    setEdit(true);}}>수정하기</button>
+                </>
+               : list.comment}
             </InfoItem>
           </ReviewTable>
                 );
@@ -129,7 +155,6 @@ const CommentInfo = styled.ul`
     font-weight: 300;
     line-height: 18px;
     letter-spacing: 0px;
-    font-family: "Noto Sans KR", sans-serif;
   }
 `;
 
@@ -141,7 +166,8 @@ const CommentTable = styled.div`
 `;
 
 const ReviewTable = styled.div`
-  margin: 2px;
+  margin: 5px;
+  border: 2px solid #e3e3e3;
 `;
 
 const TableInfo = styled.div`
