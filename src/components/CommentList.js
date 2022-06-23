@@ -12,9 +12,8 @@ const CommentList = ({ postId }) => {
   const [edit, setEdit] = React.useState(false);
   const [editcomment, setEditcomment] = React.useState("");
   const [clicked, setClicked] = useState([false, false, false, false, false]);
+  const [reclicked, setReClicked] = useState([false, false, false, false, false]);
   const data = useSelector((state) => state.comment.commentList);
-  const user = useSelector((state) => state.user.user);
-  console.log(user)
 
   const handleStarClick = index => {
     let clickStates = [...clicked];
@@ -26,13 +25,23 @@ const CommentList = ({ postId }) => {
 
   let reviewPoint = clicked.filter(Boolean).length;
 
+  const RehandleStarClick = index => {
+    let clickStates = [...reclicked];
+    for (let i = 1; i < 6; i++) {
+      clickStates[i] = i <= index ? true : false;
+    }
+    setReClicked(clickStates);
+  };
+
+  let RereviewPoint = reclicked.filter(Boolean).length;
+
   React.useEffect(() => {
     dispatch(loadCommentFB(postId));
   }, [comment]);
 
   React.useEffect(() => {
     dispatch(loadCommentFB(postId));
-  }, [editcomment]);
+  }, [RehandleStarClick]);
 
   const addcomment = () => {
     dispatch(addCommentFB(
@@ -94,7 +103,8 @@ const CommentList = ({ postId }) => {
                 }}
               >{list.nickname}
               </span>
-
+            {edit === false ? 
+                <>
               {[1, 2, 3, 4, 5].map((star, i) => {
                 return (
                   <FaStar
@@ -104,8 +114,6 @@ const CommentList = ({ postId }) => {
                   />
                   )
                 })}
-                {edit === false ? 
-                <>
               <button className="btn1" onClick={() => setEdit(true)}>수정</button>
               <button className="btn2" onClick={() => dispatch(deleteCommentFB(list.commentId))}>삭제</button>
               </>
@@ -119,11 +127,23 @@ const CommentList = ({ postId }) => {
                 marginLeft: "5px",
               }}
             >
-            {edit === true  ? 
-                <>
+            {edit === true ? 
+              <>
+              <Stars>
+              {[1, 2, 3, 4, 5].map((el, idx) => {
+                return (
+                  <FaStar
+                    key={idx}
+                    size="35"
+                    onClick={() => RehandleStarClick(el)}
+                    className={reclicked[el] && 'ReadStar'}
+                  />
+                );
+              })}
                   <input type="text" onChange={(e) => setEditcomment(e.target.value)}/>
-                  <button onClick={() => {dispatch(editCommentFB(list.commentId, editcomment)); 
-                    setEdit(true);}}>수정하기</button>
+                  <button onClick={() => {dispatch(editCommentFB(list.commentId, editcomment, RereviewPoint)); 
+                    setEdit(false);}}>수정하기</button>
+              </Stars>
                 </>
                : list.comment}
             </InfoItem>
@@ -263,6 +283,26 @@ const Stars = styled.div`
 
   .ReadStar {
     color: red;
+  }
+
+  input {
+    width : 70%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin-top: 5px;
+  }
+
+  button {
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0 20px;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    border: 1px solid gray;
+    font-size: 15px;
   }
 `;
 

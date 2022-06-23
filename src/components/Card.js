@@ -18,141 +18,43 @@ const Card = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const card_list = useSelector((state) => state.post.list);
-    const [category, setCategory]= useState("All")
-    const checkedInputs=props.checkedInputs;
-    
-    // const Cards = card_list.postId;
-
-    // const Cards = card_list.posts;
-
-    // const filteredCategory =
-    // Cards !== undefined && Cards.filter((v) => v.postCategory === category);
 
     useEffect(() => {
         dispatch(loadPostsApi());
     }, [dispatch]);
-
-    //filter값으로 필요한 값을 가져오기
-    const Cards = _.filter(card_list, {  category: checkedInputs } );
-    console.log(Cards)
     
-    
-    // console.log(card_list[0])
-    //console.log(Cards)
     const [click, setClick] = useState(false);
 
     const btnclick = () => {
         click ? setClick(false) : setClick(true);
     }
 
-    
-   const filteredCategory =
-        Cards !== undefined && Cards.filter((v) => v.postCategory === {  category: checkedInputs });
-        
-
-
-
-
-
     return (
-        <>
-
-            {card_list !== undefined && category === "All"
-                ? card_list.map((card_list, index) => {
-                    console.log(card_list)
+        <div className="Cardbox">
+               { card_list.map((card_list, index) => {
                     return (
-                        <div className="Cardbox"
-                            key={index}
-
-                        >
                             <div className="Card" onClick={() => { history.push("/Detail/" + index + "/" + `${card_list.postId}`) }}>
                                 <div className="Cardbox-content" category={card_list.category}>
-                                    <div className="Posting_Image" >
-                                        <img src={card_list.imgUrl} alt="test-card"
-                                        />
-
+                                    <div className="Posting_Image">
+                                        <img src={card_list.imgUrl} alt="test-card"/>
                                         <button className="LoveButton" onClick={btnclick}>
-                                            {/* 버튼은 이미지 안에 배치 */}
-                                            {/* boolean으로 love값을 전달 default는 false */}
                                             {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
                                         </button>
-
                                     </div>
                                     <div className="contentbox">
                                         <div className="PostName">
                                             <p>{card_list.title}</p>
                                         </div>
-                                        <div className="Avg-count">
-                                            <div className="AvgReviewPoint" >
-                                                {card_list.avgReviewPoint }
-                                                {/* <AiFillStar color="red" />
-                                                <AiFillStar color="red" />
-                                                <AiFillStar color="red" />
-                                                <AiFillStar color="red" />
-                                                <AiFillStar color="red" /> */}
-                                            </div>
-                                            <div className="CommentCount">
-                                                <p>{card_list.totalComment}</p>
-                                            </div>
-                                        </div>
-                                        <span className="wall-width"></span>
+                                    </div>
+                                    <span className="wall-width"></span>
                                         <div className="Price">
                                             <p>{card_list.price}</p>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })
-                : card_list !== undefined &&
-                card_list.map((card_list, postId) => {
-                    return (
-                        <div className="Cardbox"
-                            key={postId}
-
-                        >
-                            <div className="Card" onClick={() => { history.push("/Detail/" + postId + "/" + `${card_list.postId}`) }}>
-                                <div className="Cardbox-content" category={card_list.category}>
-                                    <div className="Posting_Image" >
-                                        <img src={card_list.imgUrl} alt="test-card"
-                                        />
-
-                                        <button className="LoveButton" onClick={btnclick}>
-                                            {/* 버튼은 이미지 안에 배치 */}
-                                            {/* boolean으로 love값을 전달 default는 false */}
-                                            {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
-                                        </button>
-
-                                    </div>
-                                    <div className="contentbox">
-                                        <div className="PostName">
-                                            <p>{card_list.title}</p>
-                                        </div>
-                                        <div className="Avg-count">
-                                            <div className="AvgReviewPoint" >
-                                                평점{card_list.avgReviewPoint }
-                                                {/* <AiFillStar  color="red" /> */}
-                                            </div>
-                                            <div className="CommentCount">
-                                                <p>코멘트 이미지{card_list.totalComment}</p>
-                                            </div>
-                                        </div>
-                                        <span className="wall-width"></span>
-                                        <div className="Price">
-                                            <p>{card_list.price}원</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
-            </>
-                
-        )       
-    };
-    
-
+                        )})}
+                    </div>          
+                )       
+            };
 
 export default Card;

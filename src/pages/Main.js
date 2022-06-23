@@ -25,14 +25,11 @@ const Main = (list) => {
         console.log(e)
         if (e.target.checked) {
             setCheckedInputs(e.target.id);
-           
         }
-        
     };
     const Cards = _.filter(Card, {category: "TRIP"});
-    console.log(Cards)
-    
 
+    
     return (
         <>
             <div className="banner">
@@ -47,7 +44,6 @@ const Main = (list) => {
             <div className="category">
                 <div className="categoty-content">
                     <label  >
-                        
                         <div
                             className="CategoryCheck"
                             type="radio"
@@ -56,15 +52,9 @@ const Main = (list) => {
                             onChange={setCheckedInputs}
                             
                             onClick={() => history.push("/All")}
-
                         >
                         <img src={TRIP} alt="TRIP"  />
                         여행
-
-
-                            
-                        
-
                         </div>
                     </label>
                     <label>
@@ -114,11 +104,9 @@ const Main = (list) => {
                             name="radioButton"
                             onChange={changeRadio}
                             onClick={setCheckedInputs}
-                            
                         ><BiCategory size="45" onClick={() => history.push("/All")} />
                         <p>전체보기</p>
                         </div>
-                            {/* 카테고리 리스트로 이동 */}
                     </label>
                 </div>
             </div>
@@ -126,49 +114,14 @@ const Main = (list) => {
                 <div className="card-view">
                     <div className="bestReviewPoint">
                         <div className="bestReviewPoint-title">
-                            <h3>여행을 원하는 사람은 여기로!💙</h3>
+                            <h3>한 주간 사랑받은 프립💜</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="TRIP"/>
-                          
+                            <Card/>
                         </div>
                     </div>
                 </div>
-                <div className="card-view">   
-                    <div className="maxComment">
-                        <div className="maxComment-title">
-                            <h3>만남을 원한다면 </h3>
-                        </div>
-                        <div className="card">
-                            <Card checkedInputs="METTING"/>
-                         
-                        </div>
-                    </div>
-                </div>
-                <div className="card-view"> 
-                    <div className="bestLoveCount">
-                        <div className="bestLoveCount-title">
-                            <h3>요리만들고 싶은 사람?</h3>
-                        </div>
-                        <div className="card">
-                            <Card checkedInputs='COOK' />
-                           
-
-                        </div>
-                    </div>
-                </div>   
-                <div className="card-view">  
-                    <div className="bestLowPrice">
-                        <div className="bestLowPrice-title">
-                            <h3>운동은 더욱 힘차게</h3>
-                        </div>
-                        <div className="card">
-                            <Card checkedInputs="SPORTS" />
-                            
-                        </div>
-                    </div>
-                </div>    
-            </div>      
+            </div>
             <div className="addBtn-container">
                 <div className="addBtn">
                     <button
@@ -177,8 +130,7 @@ const Main = (list) => {
                 </div>  
             </div>    
         </>
-
     )
-}
+};
 
 export default Main;
