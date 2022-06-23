@@ -48,7 +48,7 @@ const Card = (props) => {
                                     </div>
                                     <span className="wall-width"></span>
                                         <div className="Price">
-                                            <p>{card_list.price}</p>
+                                            <p>{card_list.price}원</p>
                                         </div>
                                 </div>
                             </div>

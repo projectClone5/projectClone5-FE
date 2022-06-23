@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   gap: 20px;
   align-content: center;
-  margin : 0 30px;
 }
 
 .Card {
@@ -11,7 +10,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   cursor: pointer;
-  width: calc((100% - 180px) / 3);
   border-radius: 10px;
 }
 
