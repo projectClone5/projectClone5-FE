@@ -41,8 +41,8 @@ const Login = () => {
     const cookies = new Cookies();
     console.log(cookies);
     console.log(_loginUser);
-    history.push("/");
     // window.location.reload();
+    //history.push("/");
     }
 
 

@@ -30,12 +30,9 @@ const initialState = {
 const cookies = new Cookies();
 
 //navigate
-const history = useHistory;
-
-
 const loginDB = (userEmail, userPassword) => {
     console.log(userEmail, userPassword);
-    return function (dispatch, getState) {
+    return function (dispatch, getState, {history}) {
       apis
         .login(userEmail, userPassword)
   
@@ -62,6 +59,7 @@ const loginDB = (userEmail, userPassword) => {
           //    console.log("토큰을 받았어!", userEmail, _cookie)
           // cookies.set("userEmail", userEmail, { path: "/" });
           // cookies.set("token", cookie, `${cookie}`);
+          history.push("/");
         })
         .catch((error) => {
             console.log(error);

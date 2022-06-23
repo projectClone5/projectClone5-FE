@@ -4,16 +4,18 @@ import post from "./modules/post"
 import user from "./modules/user";
 import comment from "./modules/comment";
 import { createBrowserHistory } from "history";
+import { connectRouter } from "connected-react-router"
+
+export const history = createBrowserHistory();
+const middlewares = [thunk.withExtraArgument({ history: history })];
+const enhancer = applyMiddleware(...middlewares);
 
 const rootReducer = combineReducers({
     post,
     user,
     comment,
+    router: connectRouter(history),
 })
-
-export const history = createBrowserHistory();
-const middlewares = [thunk];
-const enhancer = applyMiddleware(...middlewares);
 
 const store = createStore(rootReducer, enhancer);
 
