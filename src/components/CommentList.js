@@ -4,7 +4,6 @@ import { loadCommentFB, addCommentFB, editCommentFB, deleteCommentFB } from "../
 import { FaStar } from 'react-icons/fa';
 import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
-import axios from "axios";
 
 const CommentList = ({ postId }) => {
 
@@ -14,7 +13,6 @@ const CommentList = ({ postId }) => {
   const [comment, setComment] = React.useState("");
   const [clicked, setClicked] = useState([false, false, false, false, false]);
   const data = useSelector((state) => state.comment.commentList);
-  console.log(data)
 
   const handleStarClick = index => {
     let clickStates = [...clicked];
@@ -25,29 +23,16 @@ const CommentList = ({ postId }) => {
   };
 
   let reviewPoint = clicked.filter(Boolean).length;
-  const pointStar = parseInt(reviewPoint);
-
 
   React.useEffect(() => {
     dispatch(loadCommentFB(postId));
-  }, []);
-
+  }, [comment]);
 
   const addcomment = () => {
     dispatch(addCommentFB(
       postId, comment, reviewPoint));
     setComment("")
-
   }
-
-
-
-
-
-
-
-
-
 
   return (
     <div className="Review">
@@ -81,12 +66,17 @@ const CommentList = ({ postId }) => {
                 );
               })}
             </Stars>
-            <input type="text" placeholder="후기를 등록해주세요!" value={comment} onChange={(e) => setComment(e.target.value)} />
+            <input 
+              type="text" 
+              placeholder="후기를 등록해주세요!" 
+              value={comment} 
+              onChange={(e) => setComment(e.target.value)} />
             <button onClick={addcomment}>작성하기</button>
           </TableInfo>
         </CommentTable>
 
         {data.map((list, index) => {
+          return (      
           <ReviewTable>
             <InfoName>
               <span
@@ -98,7 +88,7 @@ const CommentList = ({ postId }) => {
                 }}
               >{list.nickName}
               </span>
-              <button className="btn1" onClick={() => history.push("/CommentWrite")}>수정</button>
+              <button className="btn1" onClick={() => dispatch(editCommentFB(list.commentId, comment))}>수정</button>
               <button className="btn2" onClick={() => dispatch(deleteCommentFB(list.commentId))}>삭제</button>
             </InfoName>
 
@@ -112,7 +102,8 @@ const CommentList = ({ postId }) => {
             {list.comment}
             </InfoItem>
           </ReviewTable>
-        })}
+                );
+              })}
       </CommentListWrap>
     </div>
   )

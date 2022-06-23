@@ -70,7 +70,8 @@
     margin-right: 10px;
 }
 
-.LO-SI-button > button {
+.LO-SI-button > button,
+.Logout-button > button {
     border: none;
     background-color: transparent;
     color :black;

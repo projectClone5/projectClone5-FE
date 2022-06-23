@@ -1,7 +1,5 @@
-
+import instance from "../../shared/request";
 import { apis } from "../../shared/apis";
-
-
 
 //Action
 const LOAD = "post/LOAD";
@@ -14,8 +12,8 @@ export function loadPosts(post) {
     return { type: LOAD, post };
 }
 
-export function loadPost_ID(post) {
-    return { type: LOAD_ID, post };
+export function loadPost_ID(post, postId) {
+    return { type: LOAD_ID, post, postId };
 }
 
 export function createPost(post) {
@@ -46,14 +44,24 @@ export const loadPostsApi = () => {
   };
 };
   
-export const loadPostApi = (id) => async (dispatch) => {
-  try {
-    const { data } = await apis.loadpost(id);
-    dispatch(loadPost_ID(data));
-  } catch (e) {
-    console.log(`개별 아티클 조회 오류 발생!${e}`);
+export const loadPostApi = (postId) => {
+  console.log(postId)
+    return async function (dispatch) {
+      await instance
+      .get(`/api/post/${postId}`)
+      .then((response) => {
+        console.log(response)
+
+        const comment_list = response.data
+        console.log(comment_list)
+
+        dispatch(loadPost_ID(comment_list, postId))
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
   }
-};
 
   //포스팅 삭제하기
   export const delPostApi = (id) => {
@@ -73,6 +81,17 @@ export default function reducer(state = initialState, action = {}) {
             console.log(action.post);
             return { list: action.post, is_loaded: true };
         }
+
+        case "post/LOAD_ID": {
+          console.log("포스트 하나만 불러올거야");
+
+          const post_list = [action.post];
+          console.log(post_list)
+          const new_post_list = post_list.filter((l) => {
+            return parseInt(action.postId) === l.postId;
+          });
+          return { list: new_post_list, is_loaded: true };
+      }
 
         case "post/ADD": {
             console.log("포스트 생성완료!");
