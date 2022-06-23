@@ -29,7 +29,8 @@ const Main = (list) => {
         }
         
     };
-
+    const Cards = _.filter(Card, {category: "TRIP"});
+    console.log(Cards)
     
 
     return (
@@ -45,18 +46,19 @@ const Main = (list) => {
             </div>
             <div className="category">
                 <div className="categoty-content">
-                    <label>
+                    <label  >
+                        
                         <div
                             className="CategoryCheck"
                             type="radio"
                             id="TRIP"
                             name="radioButton"
-                            onChange={changeRadio}
-                            value={checkedInputs}
+                            onChange={setCheckedInputs}
                             
+                            onClick={() => history.push("/All")}
 
                         >
-                        <img src={TRIP} alt="TRIP"/>
+                        <img src={TRIP} alt="TRIP"  />
                         여행
 
 
@@ -72,9 +74,9 @@ const Main = (list) => {
                             id="COOK"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                         >
-                        <img src={cook} alt="COOK" onClick={() => history.push("/CategoryDetail")}/>
+                        <img src={cook} alt="COOK" onClick={() => history.push("/All")}/>
                         요리
                         </div>
                     </label>
@@ -85,9 +87,9 @@ const Main = (list) => {
                             id="SPORTS"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                             >
-                        <img src={sport} alt="SPORTS"/>
+                        <img src={sport} alt="SPORTS" onClick={() => history.push("/All")}/>
                         스포츠        
                         </div>
                     </label>
@@ -98,9 +100,9 @@ const Main = (list) => {
                             id="METTING"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                             >
-                          <img src={metting} alt="METTING"/>
+                          <img src={metting} alt="METTING"  onClick={() => history.push("/All")}/>
                         모임
                         </div>
                     </label>
@@ -111,9 +113,9 @@ const Main = (list) => {
                             id="All"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
-                            defaultChecked
-                        ><BiCategory size="45" onClick={() => history.push("/All")}/>
+                            onClick={setCheckedInputs}
+                            
+                        ><BiCategory size="45" onClick={() => history.push("/All")} />
                         <p>전체보기</p>
                         </div>
                             {/* 카테고리 리스트로 이동 */}
@@ -124,33 +126,33 @@ const Main = (list) => {
                 <div className="card-view">
                     <div className="bestReviewPoint">
                         <div className="bestReviewPoint-title">
-                            <h3>대원님들이 추앙하는 프립💙</h3>
+                            <h3>여행을 원하는 사람은 여기로!💙</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="avgReviewPoint"/>
-                            {_.sortBy(Card, 'avgReviewPoint')};
+                            <Card checkedInputs="TRIP"/>
+                          
                         </div>
                     </div>
                 </div>
                 <div className="card-view">   
                     <div className="maxComment">
                         <div className="maxComment-title">
-                            <h3>가장 많은 댓글 포스트 4개 출력</h3>
+                            <h3>만남을 원한다면 </h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="totalComment"/>
-                            {_.sortBy(Card, 'totalComment')}
+                            <Card checkedInputs="METTING"/>
+                         
                         </div>
                     </div>
                 </div>
                 <div className="card-view"> 
                     <div className="bestLoveCount">
                         <div className="bestLoveCount-title">
-                            <h3>가장 많은 찜 포스트 4개 출력</h3>
+                            <h3>요리만들고 싶은 사람?</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs='loveCount' />
-                            {_.sortBy(Card, 'loveCount')}
+                            <Card checkedInputs='COOK' />
+                           
 
                         </div>
                     </div>
@@ -158,11 +160,11 @@ const Main = (list) => {
                 <div className="card-view">  
                     <div className="bestLowPrice">
                         <div className="bestLowPrice-title">
-                            <h3>가장 낮은 가격 포스트 4개 출력</h3>
+                            <h3>운동은 더욱 힘차게</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="price" />
-                            {_.sortBy(Card, "price")};
+                            <Card checkedInputs="SPORTS" />
+                            
                         </div>
                     </div>
                 </div>    

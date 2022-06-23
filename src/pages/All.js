@@ -19,13 +19,15 @@ import { BiCategory } from "react-icons/bi";
 
 import Card from "../components/Card";
 
-const All = (list) => {
+const All = (props) => {
+    console.log(props)
     const dispatch = useDispatch();
    
     const history = useHistory();
  
-    const [checkedInputs, setCheckedInputs] = useState("");
-    const category = checkedInputs;
+    const [checkedInputs, setCheckedInputs] = useState(props);
+    const category =checkedInputs;
+    console.log(category)
    
  
     const changeRadio = (e) => {
@@ -52,7 +54,7 @@ const All = (list) => {
                             id="TRIP"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                             
 
                         >
@@ -72,7 +74,7 @@ const All = (list) => {
                             id="COOK"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                         >
                         <img src={cook} alt="COOK" />
                         요리
@@ -85,7 +87,7 @@ const All = (list) => {
                             id="SPORTS"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                             >
                         <img src={sport} alt="SPORTS"/>
                         스포츠        
@@ -98,7 +100,7 @@ const All = (list) => {
                             id="METTING"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
+                            onClick={setCheckedInputs}
                             >
                           <img src={metting} alt="METTING"/>
                         모임
@@ -111,18 +113,18 @@ const All = (list) => {
                             id="All"
                             name="radioButton"
                             onChange={changeRadio}
-                            value={checkedInputs}
-                            
+                            onClick={setCheckedInputs}
+                            defaultChecked
                         ><BiCategory size="45" />
                         <p>전체보기</p>
                         </div>
-                            {/* 카테고리 리스트로 이동 */}
+                            {/* 카테고리 리스트를 변경*/}
                     </label>
                 </div>
             </div>
                 <div className="All-content">
                     <Card />
-                    {/* {checkedInputs=category} */}
+                    
                 </div>
             </div>
         </div>
