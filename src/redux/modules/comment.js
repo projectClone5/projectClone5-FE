@@ -6,16 +6,7 @@ const EDIT_COMMENT  = 'comment/EDIT_COMMENT';
 const DELETE_COMMENT = 'comment/DELETE_COMMENT';
 
 const initialState = {
-  commentList: [
-    {
-      postId: "",
-      comment: "",
-      commentId: "",
-      nickName: "",
-      userImgUrl : "",
-      reviewPoint : "",
-    },
-  ],
+  commentList: [],
 };
 
 export const loadComment = (comment_list) => {
@@ -50,8 +41,6 @@ export const loadCommentFB = (postId) => {
       })
       .catch((error) => {
         console.log(error)
-        const err_message = error.response.data.errorMessage;
-        window.alert(err_message)
       })
     }
   }
@@ -70,22 +59,17 @@ export const loadCommentFB = (postId) => {
         .then((response) => {
           console.log(response)
 
-          const message = response.data.message
-          console.log(message)
-
           dispatch(addComment(comment))
         })
         .catch((error) => {
           console.log(error)
-          const err_message = error.response.data.errorMessage;
-          window.alert(err_message)
         })
     }
   }
   
 export const editCommentFB = (commentId, comment, reviewPoint) => {
   console.log(comment)
-    return async function(dispatch, getState) {
+    return async function(dispatch) {
       await instance
       .put(`/api/comment/${commentId}`, {
         comment : comment,
@@ -96,21 +80,17 @@ export const editCommentFB = (commentId, comment, reviewPoint) => {
       .then((response) => {
         console.log(response)
 
-        const message = response.data.message
-        console.log(message)
-
         dispatch(editComment(commentId, comment))
       })
       .catch((error) => {
         console.log(error)
-        const err_message = error.response.data.errorMessage;
-        window.alert(err_message)
     })
   }
 } 
   
 export const deleteCommentFB = (commentId) => {
-    return async function(dispatch, getState) {
+  console.log(commentId)
+    return async function(dispatch) {
       await instance
       .delete(`/api/comment/${commentId}`, {
         headers: { Authorization: localStorage.getItem("jwtToken") }
@@ -118,15 +98,10 @@ export const deleteCommentFB = (commentId) => {
       .then((response) => {
         console.log(response)
 
-        const message = response.data.message
-        window.alert(message);
-
         dispatch(deleteComment(commentId))
       })
       .catch((error) => {
         console.log(error)
-        const err_message = error.response.data.errorMessage;
-        window.alert(err_message)
     })
   }
 }
@@ -145,8 +120,6 @@ export default function reducer(state = initialState, action = {}) {
       case 'comment/EDIT_COMMENT': {
           const new_comment_list = state.commentList.map((a, idx) => 
             parseInt(action.commentId) === a.commentId? { ...a, ...action.comment } : a);
-            const new_commnet = action.comment;
-            console.log(new_commnet)
           return { ...state, commentList: new_comment_list };
         } 
   
