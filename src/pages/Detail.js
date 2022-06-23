@@ -13,7 +13,7 @@ import styled from "styled-components";
 import { FaStar } from 'react-icons/fa';
 
 const Detail = (props) => {
-
+    const params = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
 
