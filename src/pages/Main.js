@@ -25,14 +25,12 @@ const Main = (list) => {
         console.log(e)
         if (e.target.checked) {
             setCheckedInputs(e.target.id);
-           
         }
-        
     };
-    // const Cards = _.filter(Card, {category: "TRIP"});
-    // console.log(Cards)
-    
+    const Cards = _.filter(Card, {category: "TRIP"});
 
+
+    
     return (
         <>
             <div className="banner">
@@ -47,7 +45,6 @@ const Main = (list) => {
             <div className="category">
                 <div className="categoty-content">
                     <label  >
-                        
                         <div
                             className="CategoryCheck"
                             type="radio"
@@ -56,7 +53,6 @@ const Main = (list) => {
                             onChange={setCheckedInputs}
                             
                             onClick={() => history.push("/All")}
-
                         >
                         <img src={TRIP} alt="TRIP"  />
                         여행
@@ -109,11 +105,9 @@ const Main = (list) => {
                             name="radioButton"
                             onChange={changeRadio}
                             onClick={setCheckedInputs}
-                            
                         ><BiCategory size="45" onClick={() => history.push("/All")} />
                         <p>전체보기</p>
                         </div>
-                            {/* 카테고리 리스트로 이동 */}
                     </label>
                 </div>
             </div>
@@ -121,6 +115,7 @@ const Main = (list) => {
                 <div className="card-view">
                     <div className="bestReviewPoint">
                         <div className="bestReviewPoint-title">
+
                             <h3>여행을 원하는 사람은 여기로!💙</h3>
                         </div>
                         <div className="card">
@@ -164,6 +159,7 @@ const Main = (list) => {
                     </div>
                 </div>    
             </div>      
+
             <div className="addBtn-container">
                 <div className="addBtn">
                     <button
@@ -172,8 +168,7 @@ const Main = (list) => {
                 </div>  
             </div>    
         </>
-
     )
-}
+};
 
 export default Main;
