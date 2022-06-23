@@ -7,7 +7,8 @@ import CommentList from "../components/CommentList";
 import "../css/Detail.css";
 import { loadPostApi } from "../redux/modules/post";
 import _ from "lodash";
-
+import { FaStar } from 'react-icons/fa';
+import styled from "styled-components";
 
 const Detail = (props) => {
     const params = useParams();
@@ -34,7 +35,7 @@ const Detail = (props) => {
     return (
         <>
             {cardPost.map((list, index) => {
-                return(
+                return (
                     <div className="post-contatinerBox">
                         <div className="post-container">
                             <div className="post-box">
@@ -58,16 +59,26 @@ const Detail = (props) => {
                             </div>
                         </div>
                         <div className="post-avg-container">
-                            <div className="post-avg">
-                                <AiFillStar color="red" size="40" />
-                                <AiFillStar color="red" size="40" />
-                                <AiFillStar color="red" size="40" />
-                                <AiFillStar color="red" size="40" />
-                                <AiFillStar color="red" size="40" />
-                                <p className="post-avg-number">5</p>
-                                <p>{list.totalComment}개 후기</p>
-                                
-                            </div>
+                            <Stars>
+                                {[1, 2, 3, 4, 5].map((star, i) => {
+
+                                    return (
+                                        <FaStar
+                                            key={i}
+                                            size="35"
+                                            style={{ color: list.avgReviewPoint > i ? ('red') : ('gray') }}
+                                        />
+
+                                    )
+
+                                })}
+
+                                <p className="post-avg-number">평점{list.avgReviewPoint}</p>
+                                <br />
+
+                            </Stars>
+                            <p>{list.totalComment}개 후기</p>
+
                         </div>
                         <div className="post-comment-container">
                             <div className="post-comment">
@@ -76,10 +87,14 @@ const Detail = (props) => {
                     </div>
                 )
             }
-        )}
-        <CommentList postId={postId} />
+            )}
+            <CommentList postId={postId} />
         </>
     )
 }
-
+const Stars = styled.div`
+  display: flex;
+  padding-top: 5px;
+  margin-right : 10px;
+  `
 export default Detail;

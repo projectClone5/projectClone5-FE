@@ -106,6 +106,7 @@ const CommentList = ({ postId }) => {
             {edit === false ? 
                 <>
               {[1, 2, 3, 4, 5].map((star, i) => {
+                reviewPoint=list.reviewPoint
                 return (
                   <FaStar
                     key={i}
