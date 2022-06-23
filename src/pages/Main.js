@@ -27,7 +27,7 @@ const Main = (list) => {
             setCheckedInputs(e.target.id);
         }
     };
-    const Cards = _.filter(Card, {category: "TRIP"});
+    // const Cards = _.filter(Card, {category: "TRIP"});
 
 
     

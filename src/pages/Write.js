@@ -158,7 +158,7 @@ const Write = (props) => {
                                     id="MEETING"
                                     name="radioButton"
                                     onClick={(e) => setCategory(e.target.value)}
-                                    value="SPORTS"
+                                    value="MEETING"
                                 >모임</button>
                             </label>
                         </div>

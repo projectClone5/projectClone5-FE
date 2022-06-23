@@ -45,9 +45,9 @@ const Detail = (props) => {
                                         <p className="post-price">{list.price}원</p>
                                     </div>
                                     <div className="post-like">
-                                        <button className="LoveButton" onClick={btnclick}>
+                                        {/* <button className="LoveButton" onClick={btnclick}>
                                             {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="black" />}
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </div>
                             </div>

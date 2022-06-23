@@ -103,7 +103,7 @@
 .card{
   margin : 0 auto;
   max-width : 1300px;
-  height: 900px;
+  /* height: 900px; */
   display : flex;
   flex-direction : row;
   align-content: flex-start;

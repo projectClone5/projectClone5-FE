@@ -71,11 +71,11 @@ const CategoryCard = (props) => {
                                         <img src={card_list.imgUrl} alt="test-card"
                                         />
 
-                                        <button className="LoveButton" onClick={btnclick}>
+                                        {/* <button className="LoveButton" onClick={btnclick}>
                                             {/* 버튼은 이미지 안에 배치 */}
                                             {/* boolean으로 love값을 전달 default는 false */}
-                                            {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
-                                        </button>
+                                            {/* {click ? <FaBookmark size="25" color="red" /> : <FaRegBookmark size="25" color="white" />}
+                                        </button> */} 
 
                                     </div>
                                     <div className="contentbox">
@@ -84,7 +84,7 @@ const CategoryCard = (props) => {
                                         </div>
                                         <div className="Avg-count">
                                             <div className="AvgReviewPoint" >
-                                                {card_list.avgReviewPoint }
+                                                {/* {card_list.avgReviewPoint } */}
                                                 {/* <AiFillStar color="red" />
                                                 <AiFillStar color="red" />
                                                 <AiFillStar color="red" />
@@ -92,7 +92,7 @@ const CategoryCard = (props) => {
                                                 <AiFillStar color="red" /> */}
                                             </div>
                                             <div className="CommentCount">
-                                                <p>{card_list.totalComment}</p>
+                                                {/* <p>{card_list.totalComment}</p> */}
                                             </div>
                                         </div>
                                         <span className="wall-width"></span>
