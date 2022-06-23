@@ -15,7 +15,7 @@ import { BiCategory } from "react-icons/bi";
 
 //components
 
-import Card from '../components/Card'
+import CategoryCard from "../components/Category"; 
 import _ from "lodash";
 
 const Main = (list) => {
@@ -29,8 +29,8 @@ const Main = (list) => {
         }
         
     };
-    const Cards = _.filter(Card, {category: "TRIP"});
-    console.log(Cards)
+    // const Cards = _.filter(Card, {category: "TRIP"});
+    // console.log(Cards)
     
 
     return (
@@ -60,11 +60,6 @@ const Main = (list) => {
                         >
                         <img src={TRIP} alt="TRIP"  />
                         여행
-
-
-                            
-                        
-
                         </div>
                     </label>
                     <label>
@@ -129,7 +124,7 @@ const Main = (list) => {
                             <h3>여행을 원하는 사람은 여기로!💙</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="TRIP"/>
+                            <CategoryCard checkedInputs="TRIP"/>
                           
                         </div>
                     </div>
@@ -140,7 +135,7 @@ const Main = (list) => {
                             <h3>만남을 원한다면 </h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="METTING"/>
+                            <CategoryCard checkedInputs="METTING"/>
                          
                         </div>
                     </div>
@@ -151,7 +146,7 @@ const Main = (list) => {
                             <h3>요리만들고 싶은 사람?</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs='COOK' />
+                            <CategoryCard checkedInputs='COOK' />
                            
 
                         </div>
@@ -163,7 +158,7 @@ const Main = (list) => {
                             <h3>운동은 더욱 힘차게</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="SPORTS" />
+                            <CategoryCard checkedInputs="SPORTS" />
                             
                         </div>
                     </div>
