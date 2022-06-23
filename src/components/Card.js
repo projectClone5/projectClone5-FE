@@ -31,9 +31,9 @@ const Card = (props) => {
     }, [dispatch]);
 
     //filter값으로 필요한 값을 가져오기
-    const Cards = _.filter(card_list, { category: category });
+    const Cards = _.filter(card_list, category );
     console.log(Cards)
-
+    
     console.log(props)
     // console.log(card_list[0])
     //console.log(Cards)

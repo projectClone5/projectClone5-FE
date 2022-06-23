@@ -16,6 +16,7 @@ import { BiCategory } from "react-icons/bi";
 //components
 
 import Card from '../components/Card'
+import _ from "lodash";
 
 const Main = (list) => {
     const history = useHistory();
@@ -28,6 +29,8 @@ const Main = (list) => {
         }
         
     };
+
+    
 
     return (
         <>
@@ -50,7 +53,7 @@ const Main = (list) => {
                             name="radioButton"
                             onChange={changeRadio}
                             value={checkedInputs}
-                            defaultChecked
+                            
 
                         >
                         <img src={TRIP} alt="TRIP"/>
@@ -124,7 +127,8 @@ const Main = (list) => {
                             <h3>대원님들이 추앙하는 프립💙</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="SPORTS"/>
+                            <Card checkedInputs="avgReviewPoint"/>
+                            {_.sortBy(Card, 'avgReviewPoint')};
                         </div>
                     </div>
                 </div>
@@ -134,7 +138,8 @@ const Main = (list) => {
                             <h3>가장 많은 댓글 포스트 4개 출력</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="TRIP"/>
+                            <Card checkedInputs="totalComment"/>
+                            {_.sortBy(Card, 'totalComment')}
                         </div>
                     </div>
                 </div>
@@ -144,7 +149,9 @@ const Main = (list) => {
                             <h3>가장 많은 찜 포스트 4개 출력</h3>
                         </div>
                         <div className="card">
-                            <Card checkedInputs="COOK"/>
+                            <Card checkedInputs='loveCount' />
+                            {_.sortBy(Card, 'loveCount')}
+
                         </div>
                     </div>
                 </div>   
@@ -154,7 +161,8 @@ const Main = (list) => {
                             <h3>가장 낮은 가격 포스트 4개 출력</h3>
                         </div>
                         <div className="card">
-                            {/* <Card /> */}
+                            <Card checkedInputs="price" />
+                            {_.sortBy(Card, "price")};
                         </div>
                     </div>
                 </div>    

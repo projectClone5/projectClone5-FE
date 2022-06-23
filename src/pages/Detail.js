@@ -8,7 +8,9 @@ import "../css/Detail.css";
 import { loadPostApi } from "../redux/modules/post";
 import _ from "lodash";
 
-const Detail = () => {
+
+const Detail = (props) => {
+    const params = useParams();
 
     const dispatch = useDispatch();
     const history = useHistory();
