@@ -42,7 +42,7 @@ const Detail = (props) => {
                                     <img src={list.imgUrl} alt="포스트 사진" />
                                     <div className="post-infor">
                                         <p className="post-title">{list.title} </p>
-                                        <p className="post-price">{list.price}</p>
+                                        <p className="post-price">{list.price}원</p>
                                     </div>
                                     <div className="post-like">
                                         <button className="LoveButton" onClick={btnclick}>

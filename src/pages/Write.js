@@ -10,7 +10,7 @@ import "../css/Write.css";
 //import DatePicker from "react-datepicker";
 
 const Write = (props) => {
-    const history = useHistory;
+    const history = useHistory();
     const dispatch = useDispatch;
     const addPosts = createPost
 
@@ -75,6 +75,7 @@ const Write = (props) => {
         //    dispatch(addPosts(frm));
         console.log(frm);
         preview([]);
+        history("/");
     }
     //포스팅 시간
     // const now = new Date();
@@ -114,7 +115,7 @@ const Write = (props) => {
                         </div>
                     <div className="Category-price">
                         <div className="CategoryBtn">
-                            <label className="CategorySelect">
+                            {/* <label className="CategorySelect">
                                 <button
                                     type="radio"
                                     id="All"
@@ -123,7 +124,7 @@ const Write = (props) => {
                                     value="All"
                                     defaultChecked
                                 >전체</button>
-                            </label>
+                            </label> */}
                             <label className="CategorySelect">
                                 <button
                                     type="radio"
@@ -182,7 +183,7 @@ const Write = (props) => {
                         <button
                             onClick={() => {
                                 addPost();
-                                // navigate("/");
+                                
                             }}>프립 등록!</button>
                         {/* 등록 성공시 메인페이지로 이동 */}
                     </div>

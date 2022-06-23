@@ -5,7 +5,7 @@ import axios from "axios";
 // import { actionCreators as userActions } from "../redux/modules/users";
 
 const Signup = () => {
-    const history = useHistory
+    const history = useHistory();
 
     const [email, setUserEmail] = useState("");
     const [nickname, setUserNickname] = useState("");
@@ -53,7 +53,11 @@ const Signup = () => {
             .then((res) => {
                 alert("회원가입 완료!")
                 console.log(res);
-            })
+                
+            }).then(()=>{
+                history.push("/Login");
+            }
+            )
         console.log(variables);
 
     }

@@ -6,6 +6,10 @@ const LOAD = "post/LOAD";
 const LOAD_ID = "post/LOAD_ID";
 const ADD = "post/ADD";
 const DELETE = "post/DELETE";
+const GET_LIKE_POST = "GET_LIKE_POST";
+
+const CHANGE_LIKE_COUNT = "CHANGE_LIKE_COUNT";
+
 
 // Action Creator
 export function loadPosts(post) {
@@ -25,6 +29,8 @@ export function deletePost(post_index) {
     console.log("지울 인덱스", post_index);
     return { type: DELETE, post_index };
 }
+
+
 
 // initialState
 const initialState = {
@@ -110,4 +116,5 @@ export default function reducer(state = initialState, action = {}) {
         default:
             return state;
     }
+    
 }

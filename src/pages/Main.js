@@ -15,7 +15,7 @@ import { BiCategory } from "react-icons/bi";
 
 //components
 
-import Card from '../components/Card'
+import CategoryCard from "../components/Category"; 
 import _ from "lodash";
 
 const Main = (list) => {
@@ -28,6 +28,7 @@ const Main = (list) => {
         }
     };
     const Cards = _.filter(Card, {category: "TRIP"});
+
 
     
     return (
@@ -114,14 +115,51 @@ const Main = (list) => {
                 <div className="card-view">
                     <div className="bestReviewPoint">
                         <div className="bestReviewPoint-title">
-                            <h3>한 주간 사랑받은 프립💜</h3>
+
+                            <h3>여행을 원하는 사람은 여기로!💙</h3>
                         </div>
                         <div className="card">
-                            <Card/>
+                            <CategoryCard checkedInputs="TRIP"/>
+                          
                         </div>
                     </div>
                 </div>
-            </div>
+                <div className="card-view">   
+                    <div className="maxComment">
+                        <div className="maxComment-title">
+                            <h3>만남을 원한다면 </h3>
+                        </div>
+                        <div className="card">
+                            <CategoryCard checkedInputs="METTING"/>
+                         
+                        </div>
+                    </div>
+                </div>
+                <div className="card-view"> 
+                    <div className="bestLoveCount">
+                        <div className="bestLoveCount-title">
+                            <h3>요리만들고 싶은 사람?</h3>
+                        </div>
+                        <div className="card">
+                            <CategoryCard checkedInputs='COOK' />
+                           
+
+                        </div>
+                    </div>
+                </div>   
+                <div className="card-view">  
+                    <div className="bestLowPrice">
+                        <div className="bestLowPrice-title">
+                            <h3>운동은 더욱 힘차게</h3>
+                        </div>
+                        <div className="card">
+                            <CategoryCard checkedInputs="SPORTS" />
+                            
+                        </div>
+                    </div>
+                </div>    
+            </div>      
+
             <div className="addBtn-container">
                 <div className="addBtn">
                     <button
